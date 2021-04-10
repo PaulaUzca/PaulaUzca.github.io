@@ -1,0 +1,21 @@
+main{
+    padding: 0 auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.intro{
+width: 35%;
+margin: 0px;
+}
+
+.projects{
+    width: 60%;
+    margin: 0px;
+}
+
+.projects .section__title{
+    align-items: flex-start;
+}
+

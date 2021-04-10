@@ -4,10 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index,follow">
+    <meta name="description" content="Wild Personal Blog for cool people">
     <title>WildPotroCode</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="tablet.css" media="screen and (min-width: 650px)">
+    <link rel="stylesheet" href="desktop.css" media="screen and (min-width: 980px)">
 </head>
 <body>
     <header>
@@ -16,12 +20,12 @@
         <span class="title__name"></span>
         <span class="fire-logo title__fire"></span>
         </div>
-        <p class="header__subtitle">wild horses run faster</p>
+        <p class="header__subtitle">A wild programming blog</p>
         <nav class="header__menu">
             <ul>
-                <li><a href="">About me</a></li>
-                <li><a href="">Projects</a></li>
-                <li><a href="">Blogposts</a></li>
+                <li><a href="#aboutme">About me</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#blog">Blog</a></li>
             </ul>
         </nav>
     </header>
@@ -47,100 +51,139 @@
     <main>
         <section class="section intro">
             <section class="section__title">
-                <h2>Hello World!</h2>
-                <p>Welcome to my very first webpage!</p>
+                <div class="section__title__text" id="aboutme">
+                    <h2>Hello World!</h2>
+                    <p>Welcome to my very first webpage!</p>
+                </div>
                 <div class="section__image-holder">
                 <img src="https://i.imgur.com/yMa5QeZ.gif" alt="skeletons dancing funny in a circle">
                 </div>
             </section>
-            <section class="intro__aboutme" id="aboutme">
+            <section class="intro__aboutme">
                 <div class="aboutme__question">
                     <div class="aboutme__question--title collapsible"><p>What is wild potro?</p><span class="collapsiblebutton" tag="0"></span></div>
                     <div class="aboutme__question--content collapsible__content">
-                        <p>Wild Potro Code is me, me documenting what I learn, what I think is cool and what I want to communicate with <i>the internet</i>.
-                        aaand I also wanted to make a cool website, and <i>Wild Potro Code</i> it's a prety hardcore name </p>
+                        <p>Wild Potro is my personal blog. This is my first step into the creator's side of <i>✨the internet✨</i>
+                        The goal of this site is to be different, bold and you guest it: wild. I will be posting things I do and things I would
+                        like to see on the internet myself. 
+                    <br>I am glad that you are reading this right now, and I hope you like it! 💜</p>
                     </div>
                 </div>
                 <div class="aboutme__question">
                     <div class="aboutme__question--title collapsible"><p>...But why a website?</p><span class="collapsiblebutton" tag="0"></span></div>
                     <div class="aboutme__question--content collapsible__content">
-                        <p>Why not?
-
-                            I came to the realization that I wanted to stop being just a consumer and start being a creator, and leave a piece of myself in the World Wide Web :D
+                        <p>Well...why not?
+                            <br> A Website allows me to have something entirely mine, that I made and where I can be creative and free to do whatever I want! (isn't that cool?)
+                            <br>And also making my own Website seemed pretty cool  😎
                         </p>
                     </div>
                 </div>
                 <div class="aboutme__question">
                     <div class="aboutme__question--title collapsible"><p>Who is behind this?</p><span class="collapsiblebutton" tag="0"></span></div>
                     <div class="aboutme__question--content collapsible__content">
-                        <p>My name is Paula, I’m 19 years old and I just learned how to make a Website. (As you may or may not have noticed)</p>
+                        <p> Hi there! My name is Paula, I’m 19 years old and I just learned how to make a Website. (As you may or may not have noticed)</p>
                     </div>
                 </div>
             </section>
         </section>
-        <section class="section projects">
+        <section class="section projects" id="projects">
             <section class="section__title">
-                <h2>My Projects</h2>
-                <p>A look into some things I've been doing</p>
+                <div class="section__title__text">
+                    <h2>My Projects</h2>
+                    <p>A look into some things I've been doing</p>
+                </div>
                 <div class="section__image-holder">
                     <img src="https://i.imgur.com/kqGonR3.jpg" alt="Cat looking at computer monitor">
                 </div>
             </section>
-            <div class="project__item rotarback">
-                <div class="visible project__item--cara1 cara">
-                    <section class=project__item--title>
-                    <h3>Wild Potro Code</h3>
-                    <span style="background-image: url(./assets/icons/pinkfire.svg);"></span>
-                    </section>
-                    <p>|Webpage</p>
-                </div>
-                <div class="project__item--cara2 cara invisible">
-                    <section class=project__item--title>
+            <section class="projects__all">
+                <div class="project__item rotarback">
+                    <div class="visible project__item--cara1 cara">
+                        <section class=project__item--title>
                         <h3>Wild Potro Code</h3>
                         <span style="background-image: url(./assets/icons/pinkfire.svg);"></span>
-                    </section>
-                    <p>The Website you are currently seeing. I started this project on February 2021 and it is still a work in progress!</p>
+                        </section>
+                        <p>|Website</p>
+                        <section class="project__item--info">
+                            <p>The wildes potro code webpage in the internet✨. Design, layout and code by me </p>
+                            <div class="project__item--info-photo">
+                                <img src="https://i.imgur.com/hQQYmE4.png" alt="mobile version of WildPotroCode">
+                            </div>
+                        </section>
+                    </div>
+                    <div class="project__item--cara2 cara invisible">
+                        <section class=project__item--title>
+                            <h3>Wild Potro Code</h3>
+                            <span style="background-image: url(./assets/icons/pinkfire.svg);"></span>
+                        </section>
+                        <section class=project__item--info>
+                            <p>The Website you are currently seeing. I started this project on February 2021 and it is still a work in progress!</p>
+                            <div class="project__item--info-seemore">
+                                <span></span>
+                                <p>See more</p>
+                            </div>
+                        </section>
+                    </div>
                 </div>
-            </div>
-            <div class="project__item rotarback">
-                <div class="visible project__item--cara1 cara">
-                    <section class=project__item--title>
-                    <h3>Batabit with Platzi</h3>
-                    <span style="background-image: url(./assets/icons/papa.svg);"></span>
-                    </section>
-                    <p>|Webpage</p>
-                </div>
-                <div class="project__item--cara2 cara invisible">
-                    <section class=project__item--title>
+                <div class="project__item rotarback">
+                    <div class="visible project__item--cara1 cara">
+                        <section class=project__item--title>
                         <h3>Batabit with Platzi</h3>
                         <span style="background-image: url(./assets/icons/papa.svg);"></span>
-                    </section>
-                    <p>I structured and used Javascript and CSS to make my first animations!</p>
-                </div>
-            </div>
-        </section>
-        <section class= "section blog">
-            <section class="section__title">
-                <h2>Let me tell you something</h2>
-                <p>Wild blog-posts I wrote for the internet to see</p>
-                <div class="section__image-holder">
-                    <img src="https://i.imgur.com/KFTdv5S.gif" alt="fingers typing fast in computer gif">
+                        </section>
+                        <p>|Website</p>
+                        <section class="project__item--info">
+                            <p>A web page for a Bitcoin selling company. (Design is from a Platzi course I took)</p>
+                            <div class="project__item--info-photo">
+                                <img src="https://i.imgur.com/t4DbeX2.png" alt="mobile version of Batabit project. A wesite to buy bitcoin">
+                            </div>
+                        </section>
+                    </div>
+                    <div class="project__item--cara2 cara invisible">
+                        <section class=project__item--title>
+                            <h3>Batabit with Platzi</h3>
+                            <span style="background-image: url(./assets/icons/papa.svg);"></span>
+                        </section>
+                        <section class=project__item--info>
+                            <p>I structured the site with HTML and used Javascript and CSS to make my first animations!</p>
+                            <div class="project__item--info-seemore">
+                                <span></span>
+                                <p>See more</p>
+                            </div>
+                        </section>
+                    </div>
                 </div>
             </section>
-            <div class="blog__post">
-                <span class="blog__post--image html-logo"></span>
-                <a class="blog__post--title" href=""> How to make a scrollable element with arrows. In CSS and JS</a>
-            </div>
-            <div class="blog__post">
-                <span class="blog__post--image html-logo"></span>
-                <a class="blog__post--title" href="./Blog/post1.html">Making my fisrt WebSite!</a></p>
-            </div>
+        </section>
+        <section class= "section blog" id="blog">
+            <section class="section__title blog__title">
+                <div class="blog__title--text">
+                    <h2>Let me tell you something</h2>
+                    <p>Wild blog-posts I wrote for the internet to see</p>
+                </div>
+                <div class="section__image-holder blog__image-holder"></div>
+            </section>
+            <section class="blog__all">
+                <div class="blog__post">
+                    <span class="blog__post--image html-logo"></span>
+                    <a class="blog__post--title" href=""> How to make a scrollable element with arrows. In CSS and JS</a>
+                </div>
+                <div class="blog__post">
+                    <span class="blog__post--image html-logo"></span>
+                    <a class="blog__post--title" href="./Blog/post1.html">Making my fisrt WebSite!</a></p>
+                </div>
+            </section>
         </section>
     </main>
     <footer>
-        <p class="footer__title">Because you have scrolled this far</p>
+        <p class="footer__title">Thank you for scrolling this far!</p>
         <section class="footer__social">
-           <span class="footer__social--logo" style="background-image: url(./assets/icons/github-logo.svg);"></span><p class="footer__social--name">Github</p>
+          <div class="footer__social--container">
+          <span class="footer__social--logo" style="background-image: url(./assets/icons/github-logo.svg);"></span><p class="footer__social--name">Github</p>
+          </div> 
+          <div class="footer__social--container">
+          <span class="footer__social--logo" style="background-image: url(./assets/icons/twitter-logo.svg);"></span><p class="footer__social--name">Twitter</p>
+          </div>
         </section>
     </footer>
     <script src="script.js"></script>

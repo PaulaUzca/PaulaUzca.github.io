@@ -17,6 +17,13 @@ html{
 body{
     font-family: 'Montserrat', sans-serif;
 }
+body::-webkit-scrollbar-thumb{
+    background-color: black;
+    border-radius: 20px;
+}
+body::-webkit-scrollbar{
+    width: 10px;
+}
 .fire-logo{
     display: inline-block;
     background-repeat: no-repeat;
@@ -69,13 +76,13 @@ header{
     margin-top: 12px;
 }
 .header__menu li{
-    margin: 0 3px;
+    margin: 0 4px;
     padding: 5px;
     display: inline-block;
     list-style: none;
     background-color: white;
     border-radius: 8px;
-    font-size: 1rem;
+    font-size: 1.3rem;
     font-weight: 400;
 }
 .header__menu a{
@@ -141,6 +148,8 @@ header{
     opacity: 1;
 }
 main{
+    display: flex;
+    flex-direction: column;
     background: url(https://i.imgur.com/gF9jgLP.jpg);
     background-repeat: repeat-y;
     background-size: cover;
@@ -160,6 +169,11 @@ main{
     flex-direction: column;
     align-items: center;
 }
+.section__title__text{
+    width: 300px;
+    margin: 0 30px;
+    margin-bottom: 30px;
+}
 .section__title h2{
     padding-bottom: 20px;
     text-align: center;
@@ -167,9 +181,8 @@ main{
     font-weight: 600;
 }
 .section__title p{
-    width: 40%;
     min-width: 220px;
-    padding-bottom: 30px;
+    margin: 0 auto;
     text-align: center;
     font-weight: 500;
     font-size: 1.8rem;
@@ -246,13 +259,21 @@ main{
     min-width: 320px;
     height: auto;
 }
+.projects__all{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .project__item{
     width: 250px;
     height: 210px;
     position: relative;
-    margin: 0 auto;
     margin-top: 40px;
+    cursor: pointer;
 }
+
 .rotar{
     animation: rotatecard 0.3s ease forwards;
 }
@@ -294,6 +315,53 @@ main{
     flex-direction: row;
     justify-content: space-between;
 }
+.project__item--info{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.project__item--cara1 .project__item--info{
+    flex-direction: row;
+}
+.project__item--cara2 .project__item--info{
+    flex-direction: column;
+}
+.project__item--info p{
+    width: 80%;
+    padding-top: 8px;
+}
+.project__item--info-photo{
+    height: 120px;
+    width: 70px;
+    align-self: flex-end;
+}
+.project__item--info-photo img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.project__item--info-seemore{
+    width: auto;
+    align-self: flex-end;
+    text-align: center;
+}
+.project__item--info-seemore span{
+    width: 40px;
+    height: 40px;
+    margin: 0 auto;
+    transform: rotate(90deg);
+    display: inline-block;
+    background-image: url(./assets/icons/pink-arrow.svg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.project__item--info .project__item--info-seemore p{
+    width: fit-content;
+    padding: 0;
+    font-size: 1rem;
+    text-decoration: underline;
+}
 .project__item--title h3{
     margin-top: 10px;
     text-align: left; 
@@ -303,6 +371,7 @@ main{
 .project__item--title span{
     width: 40px;
     height: 40px;
+    cursor: pointer;
     display: inline-block;
     background-repeat: no-repeat;
     background-size: contain;
@@ -316,6 +385,8 @@ main{
 .project__item .cara{
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
     position: absolute;
     padding: 10px 15px;
     box-shadow: -2px 4px 4px rgba(0, 0, 0, 0.25);
@@ -337,19 +408,32 @@ main{
 }
 
 /* Sección de Blog*/
+.blog__image-holder{
+    background-image: url(https://i.imgur.com/KFTdv5S.gif);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.blog__all{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
 .blog__post{
     width: 80%;
     min-width: 286px;
     max-width: 320px;
     height: 100px;
+    align-self: center;
     display: flex;
     flex-flow: nowrap row;
     justify-content: space-around;
     align-items: center;
     padding: 20px;
-    margin: 0 auto;
     margin-top: 30px;
     background-color: var(--softpink);
+}
+.blog__title--text{
+    margin-bottom: 30px;
 }
 .blog__post--title {
     width: 60%;
@@ -359,6 +443,7 @@ main{
     text-align: left;
     text-decoration: none;
     color: black;
+    cursor: pointer;
 }
 .blog__post--title:hover{
     color: var(--darkblue);
@@ -399,8 +484,15 @@ footer{
     width: 40%;
     margin: 0 auto;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+.footer__social--container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 5px 0px;
 }
 .footer__social--logo{
     height: 30px;
@@ -408,6 +500,7 @@ footer{
     display: inline-block;
     background-size: contain;
     background-repeat: no-repeat;
+    cursor: pointer;
 }
 .footer__social--name{
     font-size: 1.3rem;
