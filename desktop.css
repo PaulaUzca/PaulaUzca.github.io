@@ -1,3 +1,13 @@
+body{
+    width: 100%;
+    min-width: 980px;
+    max-width: 1300px;
+    margin: 0 auto;
+    background-color: var(--darkblue);
+}
+body::-webkit-scrollbar-thumb{
+    background-color: white;
+}
 main{
     padding: 0 auto;
     flex-direction: row;
