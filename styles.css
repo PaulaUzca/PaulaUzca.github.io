@@ -362,7 +362,7 @@ main{
     width: auto;
     font-size: 1rem;
     color: white;
-    
+
 }
 .project__item--title h3{
     margin-top: 10px;
@@ -469,7 +469,8 @@ main{
 footer{
     width: 100%;
     min-width: 320px;
-    height: 160px;
+    height: auto;
+    min-height: 160px;
     padding: 20px;
     display: flex;
     flex-direction: column;
