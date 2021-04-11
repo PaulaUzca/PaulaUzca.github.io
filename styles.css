@@ -342,6 +342,8 @@ main{
 }
 .project__item--info-seemore{
     width: auto;
+    display: flex;
+    flex-direction: column;
     align-self: flex-end;
     text-align: center;
 }
@@ -356,11 +358,11 @@ main{
     background-position: center;
     background-repeat: no-repeat;
 }
-.project__item--info .project__item--info-seemore p{
-    width: fit-content;
-    padding: 0;
+.project__item--info .project__item--info-seemore a{
+    width: auto;
     font-size: 1rem;
-    text-decoration: underline;
+    color: white;
+    
 }
 .project__item--title h3{
     margin-top: 10px;
@@ -483,6 +485,7 @@ footer{
 .footer__social{
     width: 40%;
     margin: 0 auto;
+    padding-bottom: 15px;
     display: flex;
     flex-direction: column;
     justify-content: center;
