@@ -37,11 +37,28 @@ header{
     width: 100%;
     min-width: 320px;
     min-height: 210px;
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-size: cover;
     background-image: url(https://i.imgur.com/P4vH3us.jpg);
+}
+.header__language--menu{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+.header__language--menu li{
+    display: inline-block;
+    padding: 4px;
+    border-radius: 20px;
+    background-color: white;
+}
+.header__language--menu a{
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 700;
 }
 .header__title{
     width: auto;
