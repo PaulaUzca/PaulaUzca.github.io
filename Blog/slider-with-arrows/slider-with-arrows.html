@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index,follow">
+    <meta name="description" content="Scrollable element with left and right arrows. With CSS and Vanilla Javascript. I'll show you the code and guide you throught. Have fun adding this element to your site!💜">
+    <title>Slider with arrows</title>
+    <link rel="shortcut icon" href="../../assets/icons/pinkfire.svg">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link href="../../prism.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <div id="menu__button" class="menu__button">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="header__title">
+        <span class="fire-logo title__fire uno"></span>
+        <a href="https://wildpotrocode.com/" title="Wild Potro Code" class="title"><span class="title__name wild"></span> <span class="title__name potro"></span> <span class="title__name code"></span> </a>
+        <span class="fire-logo title__fire dos"></span>
+        </div>
+        <p class="header__subtitle">A wild programming blog</p>
+    </header>
+    <div class="main__color">
+        <nav id="side__menu" class="side__menu hide-bar">
+            <ul>
+                <li>  <a href="https://wildpotrocode.com/">Start</a></li>
+                <li> <a href="">Español</a></li>
+                <li> <a href="#footer">Contact</a></li>
+            </ul>
+         </nav>
+        <main>
+            <section class="main__intro">
+            <h1 class="main__intro-title">Slider with left and right arrows with Vanilla JavaScript</h1>
+            <p class= "main__intro-subtitle"> I'll show you how I made this pretty slide element 💜</p>
+            </section>
+            <section class="example-slider__container" >
+            <span id="left-arrow" class="arrow">&lsaquo;</span>
+            <span id="right-arrow" class="arrow">&rsaquo;</span>
+            <div class="slider" id="slider">
+                 <div class="box"></div>
+                 <div class="box center"></div>
+                <div class="box"></div>
+                <div class="box dummy"></div>
+            </div>
+            </section>
+            <a id="GoCodePen" class="main__intro-button" href="https://codepen.io/PauUzca/pen/PoWRNZO">CodePen</a>
+            <p class=intro-parrafo>
+            Hey there! Today I want to share this slider I made with HTML, CSS and vanilla Javascript.
+            <br> 
+            <br>I also tried to explain it a little bit, remember that copying and pasting code will probably not solve your problem. So reading a little bit about what’s happening there might help you adapt the code to your needs in a more efficent way :D.
+            <br>So let’s get started!
+            </p>
+
+            <section class="section__codigo codigo__html">
+            <div class="section__title"><span class="title__logo img--html"></span><h2>HTML</h2></div> 
+            <div class="code__container">
+            <pre >
+            <code class="language-html">
+&lt;section class="container" >
+    &lt;span id="left-arrow" class="arrow">&lsaquo;&lt;/span>
+    &lt;span id="right-arrow" class="arrow">&rsaquo;&lt;/span>
+        &lt;div class="slider" id="slider">
+            &lt;div class="box">&lt;/div>
+            &lt;div class="box center">&lt;/div>
+            &lt;div class="box">&lt;/div>
+            &lt;div class="box dummy">&lt;div>
+            &lt;/div>
+        &lt;/section>
+&lt;script src = "script.js">&lt;/script>
+            </code>
+             </pre>
+            </div>
+    <p>In our section “container” we’ll have 2 arrows and the slider.
+    <br>Inside the slider we have the boxes we want to display.
+    <br>   
+    The last box has the class “dummy”, this box is acting as a right padding, since (for some misterius reason) you can’t add padding-right in a scrollable div.
+    But we can always solve it with an invisible element 😉
+    </p>
+    </section>
+
+    <section class="section__codigo codigo__css">
+        <div class="section__title"><span class="title__logo img--css"></span><h2>CSS</h2></div> 
+        <p><b>Styling our container: </b>use border-box so the slide looks good and a container with position relative to position the arrows</p>
+        <div class="code__container">
+        <pre>
+         <code class="language-css">
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.container{
+    width: 100%;
+    height: auto;
+    position: relative;
+         </code>
+       </pre>
+     </div>
+
+     <p> <b>Styling the arrows: </b>
+        <br>Use <b>z-index</b> to set the arrows above the slider. And with position absolute you can set them to the sides and position them in the middel with right, left and bottom properties.
+        Don’t forget the transition property if you want smooth ✨ animations ✨</p>
+        <div class="code__container">
+        <pre>
+         <code class="language-css">
+.arrow{
+    width: 30px;
+    height: 30px;
+    padding: 2px;
+    position: absolute;
+    bottom: calc(50% - 10px);
+    z-index: 3;
+    cursor: pointer;
+    border-radius: 20px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 30px;
+    background-color: rgba(255, 255, 255, 0.58);
+    transition: opacity 0.5s ease;
+}
+#left-arrow{
+    left: calc(50% - 120px);
+}
+#right-arrow{
+    right: calc(50% - 120px);
+}       
+         </code>
+       </pre>
+     </div>
+
+     <p> <b>Styling the slider:</b>  
+        <br>Set <b>left padding</b> to 40% to have the boxes centered in the middel of your slider.
+        <br>You need a <b>padding-right</b> too, but because that’s not possible, we use a “dummy” container to act as right padding
+        <br>Use <b>scroll-snap-type proximity.</b> This property makes the slide sort of “grab” on to the next element if the scroll is getting close to it
+        <br>Hide the scrollbar, we will use arrows ✨</p>
+        <div class="code__container">
+        <pre>
+         <code class="language-css">
+.slider{
+    width: 100%;
+    height: auto
+    padding-left: 40%;
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    overflow-y: hidden ;
+    scroll-behavior: smooth;
+    scroll-snap-type: x proximity;
+}
+.slider::-webkit-scrollbar{
+        display: none;
+}
+         </code>
+       </pre>
+     </div>
+
+     <p><b>Styling the boxes: </b>
+        <br>Very important to use scroll-snap-align
+        <br>min-width: you can set it to whatever you want, but set it!
+        <br>transition and opacity is to have the middle box highlighted, it’s for animation and it looks pretty ✨
+        <br>The box in the middel should have opacity 1 to begin with
+        <br>The dummy is invisible and has a 40% width because it’s acting as right padding</p>
+        
+        <div class="code__container">
+        <pre>
+         <code class="language-css">
+.box{
+    /* scroll-snap-align is very important
+    , it will help us figure out where is the center of every box*/
+    scroll-snap-align: center;
+    width: 250px;
+    /* Important!! min-width tells my slider it can not
+        resize my elements to fit, it has to do scroll*/
+    min-width: 250px;
+    height: 300px;
+    margin: 15px;
+    position: relative;
+    z-index: 1;
+    border-radius:  8px;
+    box-shadow: 2px 4px 8px rgb(89 73 100);
+    background-color: white;
+    transition: opacity 0.3s ease-in;
+    opacity: 0.5;
+}
+#center{
+    opacity: 1;
+}
+
+.dummy{
+    min-width: 70%;
+    scroll-snap-align: none;
+    visibility: hidden;
+}
+         </code>
+       </pre>
+     </div>
+     </section>
+
+     <section class="section__codigo codigo__javascript">
+        <div class="section__title"><span class="title__logo img--js"></span><div><h2>JavaScript</h2> <p class="mini-subtitle">(the fun part)</p></div> </div> 
+        <p>Now let’s get on to the good stuff. This is what we are doing:
+           <br> 1. Move slider left and right when arrow click
+           <br> 2. Hide left arrow when showing first element and hide right arrow when showing last element.
+           <br> 3. Detect which element is showing, because scroll won’t be disabled on tactile devices. The user can still scroll so we want to hide arrows in that case as well
+           <br> 4. Make sure it work’s when window is resized
+           <br> 
+           <br>Remember:
+           <br>PosicionInicial is the scroll position we get by default, where the first element in our silde is centered
+           <br>We get this position because we used scroll-snap-aling: center back in our CSS
+           <br>This will help us figure out where is the center located in the other items in our slide
+           <br>And it will keep our elements centered and pretty
+        </p>
+        <div class="code__container">
+        <pre >
+         <code class="language-javascript">
+window.addEventListener("resize", function(){
+    scrolling();
+});
+
+var slider = document.getElementById("slider");
+var box = document.getElementsByClassName("box");
+
+// Size is gonna be width + box margin
+var size = box[1].clientWidth + 30;
+
+
+
+//This is the scroll position where the first element in our silde is centered
+var posicionInicial = slider.scrollLeft;
+
+class BoxElement {
+    constructor(size, element){
+        this.size = size;
+        this.element = element;
+    }
+    isCenter() {
+        this.element.style.opacity = "1"
+    }
+    isNotCenter(){
+        this.element.style.opacity = "0.5";
+    }
+}
+var box_middle = new BoxElement(posicionInicial + size, box[1]);
+var box_left = new BoxElement(posicionInicial, box[0]);
+var box_right = new BoxElement(box_middle.size+ size, box[2]);
+
+
+function hide(arrow){
+    arrow.style.opacity = "0";
+}
+function show(arrow){
+    arrow.style.opacity = "1";
+}
+var arrow_left = document.getElementById("left-arrow");
+var arrow_right = document.getElementById("right-arrow");
+
+
+//I want the middel box to be shown in the middle by default
+slider.scrollLeft = size;
+
+//movement with arrows
+arrow_left.addEventListener("click", function(){
+    slider.scrollLeft -= size
+
+});
+
+arrow_right.addEventListener("click", function(){
+    slider.scrollLeft += size;
+});
+
+
+/* I listen to scroll event in the slide and detect when each box is center
+*/
+slider.addEventListener("scroll", scrolling);
+function scrolling(){
+let position = slider.scrollLeft;
+console.log(position);
+    if(position &lt; box_middle.size - 30) //I use 30 as a movement umbral
+    {
+        hide(arrow_left);
+        show(arrow_right);
+        box_left.isCenter();
+        box_middle.isNotCenter();
+        box_right.isNotCenter();
+    }
+    else if(position > box_middle.size + 30 ){
+
+        hide(arrow_right);
+        show(arrow_left);
+        box_right.isCenter();
+        box_middle.isNotCenter();
+        box_left.isNotCenter();
+    }
+    else{
+        show(arrow_right);
+        show(arrow_left);
+        box_middle.isCenter();
+        box_right.isNotCenter();
+        box_left.isNotCenter();
+    }
+
+}
+         </code>
+       </pre>
+     </div>
+     <p>In our section “container” we’ll have 2 arrows and the slider.
+     <br>Inside the slider we have the boxes we want to display.
+     <br>   
+     The last box has the class “dummy”, this box is acting as a right padding, since (for some misterius reason) you can’t add padding-right in a scrollable div.
+     But we can always solve it with an invisible element 😉
+     </p>
+     </section>
+
+     <p class="intro-parrafo">If you have more than 3 boxes in your slide, I guess you can have a condition where you detect when is the first and the last element showing and other cases should all show arrows left and right :D</p>
+
+    </main>
+
+</div>
+<footer id="footer">
+    <p class="footer__title">Thank you for scrolling this far!</p>
+    <section class="footer__social">
+      <div class="footer__social--container">
+     <a href="https://github.com/PaulaUzca"><span class="footer__social--logo" style="background-image: url(../../assets/icons/github-logo.svg);"></span></a><p class="footer__social--name">Github</p>
+      </div> 
+      <div class="footer__social--container">
+      <a href="https://twitter.com/Pauzca15"><span class="footer__social--logo" style="background-image: url(../../assets/icons/twitter-logo.svg);"></span></a><p class="footer__social--name">Twitter</p>
+      </div>
+    </section>
+    <p class="footer__title">Made by Paula Uzcategui with 💜</p>
+</footer>
+
+    <script src="../../prism.js"></script>
+    <script src= "script.js"></script>
+</body>
+</html>

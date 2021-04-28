@@ -1,0 +1,466 @@
+:root{
+    --potropink: #FF8EE3;
+    --softpink: #E7A8E4;
+    --softblue: #99ACEA;
+    --darkblue: #060841;
+}
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+html{
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+body{
+    font-family: 'Montserrat', sans-serif;
+    width: 100%;
+    min-width: 320px;
+    scroll-behavior: smooth;
+}
+body::-webkit-scrollbar-thumb{
+    background-color: white;
+    border: 2px black;
+    border-radius: 20px;
+}
+body::-webkit-scrollbar{
+    width: 10px;
+}
+.fire-logo{
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(../../assets/icons/pinkfire.svg);
+}
+img{
+    width: 100%;
+}
+header{
+    width: 100%;
+    min-width: 320px;
+    height: 80px;
+    z-index: 5;
+    position:fixed;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr 1fr;
+    background-size: cover;
+    background-image: url(https://i.imgur.com/P4vH3us.jpg);
+}
+.header__title{
+    width: auto;
+    min-width: 320px;
+    margin-top: 15px;
+    margin-left: 30px;
+    height: auto;
+    grid-row-start: 1;
+}
+.header__subtitle{
+    grid-row-start: 2;
+    margin-left : 30px;
+}
+.title__fire{
+    width: 25px;
+    height: 32px;
+    display: none;
+}
+.title{
+    width: 80%;
+    min-width: 320px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.title__name{
+    height: 30px;
+    width: 100px;
+    margin-top: 3px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.title__name.wild{
+    width: 90px;
+    background-image: url(../../assets/icons/wild.svg);
+}
+.title__name.potro{
+    background-image: url(../../assets/icons/potro.svg);
+}
+.title__name.code{
+    background-image: url(../assets/icons/code.svg);
+}
+.side__menu{
+    width: 100%;
+    height: 40px;
+    position: fixed;
+    top: 79px;
+    z-index: 6;
+    right: 0;
+    background-color: var(--potropink);
+    transition: right 0.6s ease-in-out;
+}
+.side__menu ul{
+    width: 200px;
+    height: 100%;
+    position: absolute;
+    right: inherit;
+    left: 30px;
+    transition: all 0.07s linear;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.side__menu li{
+    display: inline;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+.hide-bar{
+right: 100%;
+}
+.menu__button{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    margin-top: 15px;
+    z-index: 7;
+    padding-left: 3px;
+    grid-column-start: 1;
+    border-radius: 10px;
+    padding-top: 3px;
+
+}
+.push__button{
+}
+
+.menu__button div{
+    width: 15px;
+    height: 4px;
+    margin: 0 auto;
+    margin-top: 3px;
+    border-radius: 10px;
+    background-color: black;
+}
+
+/* Slider de ejemplo con flechas*/
+.example-slider__container{
+    width: 100%;
+    min-width: 320px;
+    height: auto;
+    position: relative;
+    margin-top: 40px;
+}
+.example-slider__container .arrow{
+    width: 30px;
+    height: 30px;
+    padding: 2px;
+    position: absolute;
+    bottom: calc(50% - 10px);
+    z-index: 3;
+    cursor: pointer;
+    border-radius: 20px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 30px;
+    background-color: rgba(255, 255, 255, 0.58);
+    transition: opacity 0.5s ease;
+}
+#left-arrow{
+    left: calc(50% - 120px);
+}
+#right-arrow{
+    right: calc(50% - 120px);
+}
+.example-slider__container .slider{
+    width: 100%;
+    height: auto;
+
+    /* We need a padding left 
+    so that the elements will be centered at all times*/
+    padding-left: 40%;
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    overflow-y: hidden ;
+    scroll-behavior: smooth;
+    scroll-snap-type: x proximity;
+}
+.example-slider__container .slider::-webkit-scrollbar{
+     display: none;
+}
+.example-slider__container .box{
+    /* scroll-snap-align is very important
+    it will help us figure out where is the center of every box in our slide*/
+    scroll-snap-align: center;
+    width: 120px;
+    /* Important!! min-width tells my slider it can not
+     resize my elements to fit, it has to do scroll*/
+    min-width: 120px;
+    height: 150px;
+    margin: 15px;
+    position: relative;
+    z-index: 1;
+    border-radius:  8px;
+    box-shadow: 2px 4px 8px rgb(89 73 100);
+    background-color: var(--softpink);
+    transition: opacity 0.3s ease-in;
+    opacity: 0.5;
+}
+#center{
+    opacity: 1;
+}
+.example-slider__container .dummy{
+    min-width: 70%;
+    scroll-snap-align: none;
+    visibility: hidden;
+}
+
+.main__color{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+main{
+    width: 100%;
+    min-width: 320px;
+    max-width: 520px;
+    padding-top: 80px;
+    margin: 0 auto;
+}
+.main__intro{
+display: flex;
+flex-direction: column;
+align-items: center;
+padding-left: 5px;
+margin-top: 30px;
+}
+.main__intro-title{
+    width: 95%;
+    min-width: 300px;
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 2.8rem;
+    color: var(--darkblue);
+}
+.main__intro-subtitle{
+    min-width: 300px;
+    margin-top: 12px;
+    padding-left: 8px;
+    font-size: 1.8rem;
+    font-weight: 500;
+    line-height: 2rem;
+}
+.main__intro-button{
+    width: 100px;
+    margin-top: 15px;
+    margin-left: calc(50% - 50px);
+    padding: 8px;
+    background-color: var(--darkblue);
+    color: white;
+    font-size: 1.8rem;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 30px;
+    border-style: none;
+    box-shadow: 0px 4px 4px #C2B9C2;
+}
+.intro-parrafo{
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 75px;
+    padding: 0 10px;
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: black;
+    
+}
+
+.section__codigo{
+width: 100%;
+margin: 0 auto;
+margin-top: 30px;
+padding: 0 10px;
+margin-bottom: 90px;
+}
+.section__codigo p{
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: black;
+}
+.section__title{
+    display: flex;
+    width: 100%;
+    height: 40px;
+}
+
+.title__logo{
+width: 35px;
+height: 40px;
+padding-left: 8px;
+display: inline-block;
+background-repeat: no-repeat;
+background-size: cover;
+}
+.code__container{
+    width: 100%;
+    height: 250px;
+	background: rgb(232, 169, 230, 0.4);
+    margin-top: 20px;
+    resize: both;
+    overflow: auto;
+}
+.section__codigo h2{
+    padding-top: 5px;
+    font-size: 2rem;
+    font-weight: 600;
+    padding-left: 12px;
+}
+
+.img--html{
+    background-image: url(https://i.imgur.com/LffgAPZ.png);
+}
+.img--css{
+    background-image: url(https://i.imgur.com/qRqWkN2.png);
+}
+.img--js{
+    background-image: url(https://i.imgur.com/2V1AFGK.png);
+}
+.codigo__javascript .mini-subtitle {
+    font-size: 1.2rem;
+    margin: 0;
+    padding-left: 12px;
+}
+footer{
+    width: 100%;
+    min-width: 320px;
+    min-height: 130px;
+    padding: 20px;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--potropink);
+}
+.footer__title{
+    margin: 0 auto;
+    padding-bottom: 10px;
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+.footer__social{
+    width: 40%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.footer__social--container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 5px 0px;
+}
+.footer__social--logo{
+    height: 30px;
+    width: 30px;
+    display: inline-block;
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+.footer__social--name{
+    font-size: 1.3rem;
+    margin-left: 8px;
+}
+
+@media (min-width:600px) {
+    header{
+        height: 210px;
+        position: relative;
+    }
+    .header__title{
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: center;
+        margin-left: 0px;
+    }
+    .header__title a{
+        width: auto;
+    }
+    .title__fire{
+        width: 50px;
+        height: 60px;
+    }
+    .title__name{
+        width: 140px;
+        height: 110px;
+        margin: 0 auto;
+        display: inline-block;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .header__subtitle{
+        margin-top: 10px;
+        margin-left: 0px;
+        font-weight: 500;
+        font-size: 1.2rem;
+        text-align: center;
+    }
+    .title__name.code{ display: none;}
+    .title__name.potro{ display: none;}
+    .title__name.wild{
+        width: 140px;
+        background-image: url(../../assets/icons/titulo.svg);
+    }
+    .title__fire{
+        display: block;
+    }
+    .side__menu{
+        position: absolute;
+        top: 0;
+    }
+    .side__menu ul{
+        margin: 0 auto;
+        left: 0;
+    }
+    main{
+        padding-top: 30px;
+    }
+    .main__intro-title{
+        text-align: center;
+    }
+}
+@media (min-width: 980px) {
+    body{
+        width: 100%;
+        min-width: 980px;
+        max-width: 1300px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: var(--darkblue);
+    }
+    .main__color{
+        width: 100%;
+        background-color: white;
+        position: relative;
+    } 
+    main{
+        max-width: 700px;
+    }
+    .hide-bar{
+        right: 0;
+    }
+    .menu__button{
+        display: none;
+    }
+}
