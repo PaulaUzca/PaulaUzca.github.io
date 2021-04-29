@@ -95,3 +95,9 @@ document.getElementById("menu__button").addEventListener("click", function(){
 document.getElementById("side__menu").classList.toggle("hide-bar");
 this.classList.toggle("push__button");
 })
+
+//boton a codepen
+
+document.getElementById("GoCodePen").addEventListener("click",function(){
+    this.nextElementSibling.classList.toggle("active");
+})

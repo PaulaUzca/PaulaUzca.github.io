@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index,follow">
+    <meta name="description"
+        content="Guía para hacer un slider con flechitas. En CSS y Javascript. Diviertete añadiendo este elemento a tu página web!💜">
+    <title>Slider con flechas (fácil, cool y lindo)</title>
+    <link rel="shortcut icon" href="../../assets/icons/pinkfire.svg">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link href="../../prism.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header>
+        <div id="menu__button" class="menu__button">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="header__title">
+            <span class="fire-logo title__fire uno"></span>
+            <a href="https://wildpotrocode.com/" title="Wild Potro Code" class="title"><span
+                    class="title__name wild"></span> <span class="title__name potro"></span> <span
+                    class="title__name code"></span> </a>
+            <span class="fire-logo title__fire dos"></span>
+        </div>
+        <p class="header__subtitle">Un blog cool de programación y otras cositas</p>
+    </header>
+    <div class="main__color">
+        <nav id="side__menu" class="side__menu hide-bar">
+            <ul>
+                <li> <a href="https://wildpotrocode.com/">Inicio</a></li>
+                <li> <a href="./slidertutorial.html">English</a></li>
+                <li> <a href="#footer">Contacto</a></li>
+            </ul>
+        </nav>
+        <main>
+            <section class="main__intro">
+                <h1 class="main__intro-title">Como hacer un Slider con flechas muy lindo en Javascript</h1>
+                <p class="main__intro-subtitle"> Te mostrare como hice este elemento deslizable 💜</p>
+            </section>
+            <section class="example-slider__container">
+                <span id="left-arrow" class="arrow">&lsaquo;</span>
+                <span id="right-arrow" class="arrow">&rsaquo;</span>
+                <div class="slider" id="slider">
+                    <div class="box"></div>
+                    <div class="box center"></div>
+                    <div class="box"></div>
+                    <div class="box dummy"></div>
+                </div>
+            </section>
+            <div class="button">
+                <a id="GoCodePen" class="main__button" href="https://codepen.io/PauUzca/pen/PoWRNZO">CodePen</a>
+            </div>
+            <p class=intro-parrafo>
+                Hola! Bienvenidx a la primera entrada de mi blog! Hoy te enseñare a hacer este slider que me parece me quedó bien bonito.
+                <br>
+                <br>Te explicaré mi código paso a paso (aunque no esta nada complicado!). Recuerda que copiando y pegando todo no te va a funcionar mágicamente (o tal vez sí, si tienes mucha mucha suerte)
+                Asi que no está de más leer un poco sobre lo que esta pasando aqui para entender todo mejor y adaptar el código a tu proyecto ;)
+                <br>Algunas partes del código estarán en spanlglish porque esto es un wild potro code <i>bilingüe</i>
+                <br>Sin más introducción, comencemos!
+            </p>
+
+            <section class="section__codigo codigo__html">
+                <div class="section__title"><span class="title__logo img--html"></span>
+                    <h2>HTML</h2>
+                </div>
+                <p class="code__explanation">En nuestra sección <i>container</i> tendremos dos flechas y el slider
+                    <br>Dentro del <i>slider</i> tendremos las cajitas que queremos mostrar.
+                    <br>
+                    La última caja es un <i>dummy</i> esta caja va estar actuando como padding derecho, ya que por alguna razón misteriosa
+                    <b> no se le puede añadir right-padding a un elemento con scroll horizontal</b>
+                     Pero siempre podemos hacer un truquito bien malandro para arreglarlo 😉
+                </p>
+                <div class="code__container">
+                    <pre>
+            <code class="language-html">
+&lt;section class="container" >
+    &lt;span id="left-arrow" class="arrow">&lsaquo;&lt;/span>
+    &lt;span id="right-arrow" class="arrow">&rsaquo;&lt;/span>
+        &lt;div class="slider" id="slider">
+            &lt;div class="box">&lt;/div>
+            &lt;div class="box center">&lt;/div>
+            &lt;div class="box">&lt;/div>
+            &lt;div class="box dummy">&lt;div>
+            &lt;/div>
+        &lt;/section>
+&lt;script src = "script.js">&lt;/script>
+            </code>
+             </pre>
+                </div>
+            </section>
+
+            <section class="section__codigo codigo__css">
+                <div class="section__title"><span class="title__logo img--css"></span>
+                    <h2>CSS</h2>
+                </div>
+                <p class="code__explanation"><b>Darle estilo al contenedor:</b> como vamos a estar jugando con paddings y margins es mejor usar <i>border-box</i> (que es una maravilla). Y no olvides usar  <i>position: relative</i> porque lo necesitamos para posicionar las flechas con absolute</p>
+                <div class="code__container">
+                    <pre>
+         <code class="language-css">
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.container{
+    width: 100%;
+    height: auto;
+    position: relative;
+         </code>
+       </pre>
+                </div>
+
+                <p class="code__explanation"> <b>Darle estilo a las flechitas </b>
+                    Usa <b>z-index</b> para posicionar las flechas por encima del slider. Usaremos position absolute para mover las flechas
+                    <i>left, right y bottom</i> a nuestro antojo.
+                    No olvides <i>transition</i> si quieres una transición bien <i>smooth</i> de opacidad.
+                    <br>También use text-align, line-height y font-size para posicionar los códigos html que son las flechas.
+                </p>
+                <div class="code__container">
+                    <pre>
+         <code class="language-css">
+.arrow{
+    width: 30px;
+    height: 30px;
+    padding: 2px;
+    position: absolute;
+    bottom: calc(50% - 10px);
+    z-index: 3;
+    cursor: pointer;
+    border-radius: 20px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 30px;
+    background-color: rgba(255, 255, 255, 0.58);
+    transition: opacity 0.5s ease;
+}
+#left-arrow{
+    left: calc(50% - 120px);
+}
+#right-arrow{
+    right: calc(50% - 120px);
+}       
+         </code>
+       </pre>
+                </div>
+
+                <p class="code__explanation"> <b>Darle estilo al slider:</b>
+                    <br>Usamos <b>left padding</b> al 40% para tener las cajas centradas en la mitad del slider.
+                    <br>También necesitamos <b>padding-right</b> pero como no es posible usaremos un dummy con ancho del 70%, visibility: hidden y sin scroll-snap align porque queremos que sea <b>completamente ignorado</b>
+                    <br>Usamos <b>scroll-snap-type proximity.</b> Esta propiedad hace que el elemento más proximo al centro sea "atraido" por el scroll hacia la mitad
+                    <br>No olvides ocultar el scrollbar porque vamos a usar flechitas ✨
+                </p>
+                <div class="code__container">
+                    <pre>
+         <code class="language-css">
+.slider{
+    width: 100%;
+    height: auto
+    padding-left: 40%;
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    overflow-y: hidden ;
+    scroll-behavior: smooth;
+    scroll-snap-type: x proximity;
+}
+.slider::-webkit-scrollbar{
+        display: none;
+}
+.dummy{
+    min-width: 70%;
+    scroll-snap-align: none;
+    visibility: hidden;
+}
+         </code>
+       </pre>
+                </div>
+
+                <p class="code__explanation"><b>Darle estilo a las cajitas:</b> </p>
+                <ul class="code__explanation--ul-list code__explanation">   
+                    <li>Es muy importante usar scroll-snap-align para centrar cada caja</li>
+                    <li>Puedes ponerle un min-width del tamaño que quieras ¡lo importante es que lo tenga!</li>
+                    <li>Tendremo <i>transition y opacity</i> para resaltar la caja que se encuentre en el medio (esto lo controlaremos con javascript)</li>
+                    <li>#center id para ponerle una opacidad de 1 a la caja que comienza en el centro</li>
+                </ul>
+
+                <div class="code__container">
+                    <pre>
+         <code class="language-css">
+.box{
+    /* scroll-snap-align is very important
+    , it will help us figure out where is the center of every box*/
+    scroll-snap-align: center;
+    width: 250px;
+    /* Important!! min-width tells my slider it can not
+        resize my elements to fit, it has to do scroll*/
+    min-width: 250px;
+    height: 300px;
+    margin: 15px;
+    position: relative;
+    z-index: 1;
+    border-radius:  8px;
+    box-shadow: 2px 4px 8px rgb(89 73 100);
+    background-color: white;
+    transition: opacity 0.3s ease-in;
+    opacity: 0.5;
+}
+#center{
+    opacity: 1;
+}
+         </code>
+       </pre>
+                </div>
+            </section>
+
+            <section class="section__codigo codigo__javascript">
+                <div class="section__title"><span class="title__logo img--js"></span>
+                        <h2>JavaScript</h2>
+                </div>
+                <p class="code__explanation">Ahora vamos a lo bueno. Esto es lo que vamos a hacer:</p>
+                <ol class="code__explanation--ol-list">   
+                    <li>Hacerle scroll al slider a la derecha o a la izquierda según el click de las flechas.</li>
+                    <li>Esconder la flecha izquierda cuando se muestre el primer elemento, y esconder la flecha derecha cuando se muestre el último elemento </li>
+                    <li>Detectar que elemento se esta mostrando cada vez que se hace scroll</li>
+                    <li>Hacer que funcione cuando se redimensione la pestaña.
+                </ol> 
+                <p><b>Recuerda:</b></p>
+                <ul class="code__explanation--ul-list" >
+                    <li> <i>PosicionInicial</i> es la posicion del scroll que tenemos por defecto, en la que el primer elemento esta centrado.
+                    Obtenemos esta posicion porque usamos scroll-snap-align:center en los estilos de las cajitas (ya dije que era importante)
+                    Esto nos ayuda a ubicar el centro de las otras cajas en la posición del scroll.</li>
+                </ul>
+                   
+                <div class="code__container">
+                    <pre>
+         <code class="language-javascript">
+window.addEventListener("resize", function(){
+    scrolling();
+});
+
+var slider = document.getElementById("slider");
+var box = document.getElementsByClassName("box");
+
+// Size is gonna be width + box margin
+var size = box[1].clientWidth + 30;
+
+
+
+//This is the scroll position where the first element in our silde is centered
+var posicionInicial = slider.scrollLeft;
+
+class BoxElement {
+    constructor(size, element){
+        this.size = size;
+        this.element = element;
+    }
+    isCenter() {
+        this.element.style.opacity = "1"
+    }
+    isNotCenter(){
+        this.element.style.opacity = "0.5";
+    }
+}
+var box_middle = new BoxElement(posicionInicial + size, box[1]);
+var box_left = new BoxElement(posicionInicial, box[0]);
+var box_right = new BoxElement(box_middle.size+ size, box[2]);
+
+
+function hide(arrow){
+    arrow.style.opacity = "0";
+}
+function show(arrow){
+    arrow.style.opacity = "1";
+}
+var arrow_left = document.getElementById("left-arrow");
+var arrow_right = document.getElementById("right-arrow");
+
+
+//I want the middel box to be shown in the middle by default
+slider.scrollLeft = size;
+
+//movement with arrows
+arrow_left.addEventListener("click", function(){
+    slider.scrollLeft -= size
+
+});
+
+arrow_right.addEventListener("click", function(){
+    slider.scrollLeft += size;
+});
+
+
+/* I listen to scroll event in the slide and detect when each box is center
+*/
+slider.addEventListener("scroll", scrolling);
+function scrolling(){
+let position = slider.scrollLeft;
+console.log(position);
+    if(position &lt; box_middle.size - 30) //I use 30 as a movement umbral
+    {
+        hide(arrow_left);
+        show(arrow_right);
+        box_left.isCenter();
+        box_middle.isNotCenter();
+        box_right.isNotCenter();
+    }
+    else if(position > box_middle.size + 30 ){
+
+        hide(arrow_right);
+        show(arrow_left);
+        box_right.isCenter();
+        box_middle.isNotCenter();
+        box_left.isNotCenter();
+    }
+    else{
+        show(arrow_right);
+        show(arrow_left);
+        box_middle.isCenter();
+        box_right.isNotCenter();
+        box_left.isNotCenter();
+    }
+
+}
+         </code>
+       </pre>
+                </div>
+                <p class="code__explanation">
+                Si tienes más de 3 cajitas en tu slider puedes adaptar la condición para que reconozca la ubicación de la primera y última caja
+                y que en el resto de cajas simplemente se muestren ambas flechas. No lo he probado pero creo que podría funcionar!
+                </p>
+            </section>
+
+            <section class="goodbye intro-parrafo">
+                <p>¡Eso es todo por ahora! Gracias por leer este post. Nos vemos en alguna otra publicación!:)</p>
+                <img src="https://i.imgur.com/wfXHlfu.gif" alt="gif totoro on a hill waving goodbye">
+            </section>
+        </main>
+
+    </div>
+    <footer id="footer">
+        <p class="footer__title">¡Asi que haz llegado hasta aqui!</p>
+        <section class="footer__social">
+            <div class="footer__social--container">
+                <a href="https://github.com/PaulaUzca"><span class="footer__social--logo"
+                        style="background-image: url(../../assets/icons/github-logo.svg);"></span></a>
+                <p class="footer__social--name">Github</p>
+            </div>
+            <div class="footer__social--container">
+                <a href="https://twitter.com/Pauzca15"><span class="footer__social--logo"
+                        style="background-image: url(../../assets/icons/twitter-logo.svg);"></span></a>
+                <p class="footer__social--name">Twitter</p>
+            </div>
+        </section>
+        <p class="footer__title">Made by Paula Uzcategui with 💜</p>
+    </footer>
+
+    <script src="../../prism.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
