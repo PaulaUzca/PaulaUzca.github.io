@@ -63,7 +63,6 @@ arrow_right.addEventListener("click", function(){
 slider.addEventListener("scroll", scrolling);
 function scrolling(){
 let position = slider.scrollLeft;
-console.log(position);
     if(position < box_middle.size - 30) //I use 30 as a movement umbral
     {
         hide(arrow_left);
@@ -96,8 +95,3 @@ document.getElementById("side__menu").classList.toggle("hide-bar");
 this.classList.toggle("push__button");
 })
 
-//boton a codepen
-
-document.getElementById("GoCodePen").addEventListener("click",function(){
-    this.nextElementSibling.classList.toggle("active");
-})

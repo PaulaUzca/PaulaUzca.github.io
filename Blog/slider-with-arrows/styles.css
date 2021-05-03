@@ -386,7 +386,7 @@ background-size: cover;
 .goodbye{
 display: flex;
 width: 100%;
-flex-direction: column wrap;
+flex-direction: column;
 justify-content: center;
 align-items: center;
 }
@@ -502,7 +502,7 @@ footer{
         text-align: center;
     }
     .goodbye{
-        flex-flow: wrap row;
+        flex-direction: row;
     }
 }
 @media (min-width: 980px) {
