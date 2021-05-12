@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index,follow">
+    <meta name="description" content="Simulador de la máquina de encriptación Enigma">
+    <title>Enigma Emulador Rosado</title>
+    <link rel="shortcut icon" href="../../assets/icons/pinkfire.svg">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="tablet.css" media="screen and (min-width: 600px)">
+    <link rel="stylesheet" href="desktop.css" media="screen and (min-width: 980px)">
+
+</head>
+
+<body>
+    <header>
+        <div id="menu__button" class="menu__button">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="header__title">
+            <span class="fire-logo title__fire uno"></span>
+            <a title="Wild Potro Code" class="title"><span class="title__name wild"></span> <span
+                    class="title__name potro"></span> <span class="title__name code"></span> </a>
+            <span class="fire-logo title__fire dos"></span>
+        </div>
+        <p class="header__subtitle">blog de programación y otras cositas cools</p>
+    </header>
+
+    <main>
+        <nav id="side__menu" class="side__menu hide-bar">
+            <ul>
+                <li> <a href="https://wildpotrocode.com/" title="go to main page">Inicio</a></li>
+                <li> <a href="" title="You speak english?" onclick="alert('Sorry there is no English version of this post :(')">English</a></li>
+                <li> <a href="#footer" title="my contact info">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="info-container">
+            <h1 class="blog__title">DIE <b style="color: var(--potropink)">PINKE</b> ENIGMA MASCHINE</h1>
+            <p class="ejercicio1"> No cambies los settings y prueba: KOBLJ KHTME LUL </p>
+            <section class="enigma">
+                <section class="enigma__view">
+                    <div class="enigma__hardware">
+                        <div class="board-lights board" id="board-lights">
+
+                        </div>
+                        <div class="board-write board" id="board-write">
+
+                        </div>
+                    </div>
+
+                    <section class="enigma__plugboard">
+                        <p class="plugboard__title">Plugboard</p>
+                        <div class="plugboard__container">
+                        </div>
+                    </section>
+
+                </section>
+
+                <div class="window__machine-info">
+                    <div class="window__X"></div>
+                    <p>Configuración de los rotores</p>
+                    <img class="identify__settings" src="https://i.imgur.com/sGrYguN.jpg"
+                        alt="explicacion rotor settings">
+                    <p>Puedes cambia la configuración de los rotores, ring, posicion inicial,
+                        y tipo de reflector dando click en cada uno de ellos.
+                    </p>
+                    <p>Al igual que en el enigma original, la posicion de los rotores va de
+                        derecha a izquierda. Siendo el rotor verde el más rápido y el rotor azul el más lento
+                    </p>
+                </div>
+
+                <section class="enigma__engine">
+                    <button id="question" class="enigma__button" title="como se usa">?</button>
+                    <button id="reset-settings" class="enigma__button">Reset</button>
+
+                    <section class="column" id="fastRotor">
+                        <p class="rotor-number">III</p>
+                        <p class="ring-setting">A</p>
+                        <div class="rotorcontainer">
+                            <div class="rotor-wiring">
+                                <p>B</p>
+                            </div>
+                            <div class="rotor-initial">
+                                <p>A</p>
+                            </div>
+                            </select>
+                        </div>
+                    </section>
+                    <section class="column" id="middleRotor">
+                        <p class="rotor-number">II</p>
+                        <p class="ring-setting">A</p>
+                        <div class="rotorcontainer">
+                            <div class="rotor-wiring">
+                                <p>D</p>
+                            </div>
+                            <div class="rotor-initial">
+                                <p>A</p>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="column" id="slowRotor">
+                        <p class="rotor-number">I</p>
+                        <p class="ring-setting">A</p>
+                        <div class="rotorcontainer">
+                            <div class="rotor-wiring">
+                                <p>D</p>
+                            </div>
+                            <div class="rotor-initial">
+                                <p>A</p>
+                            </div>
+                        </div>
+
+                    </section>
+                    <section class="column" id="reflector">
+                        <p>Reflector</p>
+                        <p class="reflector-number">UKW-B</p>
+                    </section>
+                </section>
+
+                <section class="enigma__paper">
+                    <div class="paper__section input">
+                        <p class="paper__section--title">Plain Text</p>
+
+                        <textarea class="plaintext__input paper__textarea" id="textbox" onkeypress="return lettersValidate(event)"> </textarea>
+                        <button id="clearInputBox" class="enigma__button">Clear</button>
+                        <button id="encriptInput" class="enigma__button">Encript</button>
+                    </div>
+                    <div class="paper__section output">
+                        <p class="paper__section--title">Cyper Text</p>
+                        <textarea id="result" class="cyphertext__output paper__textarea"></textarea>
+                        <button id="copyCypher" class="enigma__button">Copy</button>
+                    </div>
+
+                    <section class="enigma__my-settings">
+                        <p id="user-settings">Tus Enigma Settings son:</p>
+                    </section>
+
+                </section>
+
+            </section>
+
+            <article class="intro">
+                <p> <i> <b>La Máquina Enigma</b></i> ¿que nombre tan cool no?
+                    <br>Desde hace un tiempo he estado aprendiendo un poco de
+                    <b>criptografía </b>y me he encontrado con el famosisímo Enigma, una máquina de encripción usada por
+                    los
+                    alemanes en la <b>Segunda Guerra Mundial</b>.
+                </p>
+                <p> <br>Como te imaginarás, romper el código enigma fue un problema muy importante
+                    para los aliados, por lo que se armó toda una operación para descifrar estos mensajes secretos. En
+                    esta misión estaba <b>Alan Turing</b> quien junto con su equipo creó la primera computadora con la
+                    cual
+                    consiguió
+                    romper el enigma y ayudó a ganar la guerra!
+                </p>
+                <p>
+                    <br> Entonces aqui traigo <b>mi emulador del enigma!</b> No te voy a mentir, este programa fue un
+                    reto, pero una
+                    vez entendí como funcionaban la máquina a profundidad, el código se me hizo mucho más fácil de
+                    escribir! (Hablaré de eso más adelante)
+                </p>
+                <p> <br> <b>Aqui te dejo el link a el <a href="">repositorio en github</a></b></p>
+
+            </article>
+
+            <section class="explicacion">
+                <article class="funcionamiento">
+                    <h3>EN ESTE BLOG</h3>
+                    <p>
+                        <b>Investigando</b> el funcionamiento del enigma en <b>internet</b>, me encontre con terminos y
+                        explicaciones
+                        tan tecnicas y <i>geroglificas</i> que me hicieron preguntarme <b>¿No hay una forma de
+                            explicarle esto a un
+                            simple mortal como yo?</b>
+                        <br>Y es que encontrar una explicación que enserio me guiara en la dirección correcta para
+                        escribir un <b>algoritmo</b>  para una computadora se me hizo muy dificil! (Por ahi leí que esto se
+                        debe a que la información sobre el enigma era top secret hasta hace algunos años).
+                        <br> Pero gracias a varios comentarios salvadores en <b>blogs de criptografía</b> y en
+                        <b>stackoverflow</b> fue que hice este simulador.
+                        Asi que en este post encontrarás <b>mis apuntes</b> sobre como funciona el enigma.
+                    </p>
+
+                    <h3>UN POCO MÁS DE HISTORIA</h3>
+                    <p>
+                        El enigma fue creado por los alemanes desde <b>antes de la guerra,</b> y la gente lo compraba
+                        para encriptar sus mensajes y poder comunicarse en secreto.
+                        <br>Pues <b>usar el enigma es bastante fácil</b>. Tiene la apariencia de una maquina de
+                        escribir, y al
+                        presionar una tecla esta pasa por un <b>proceso de encripción</b> donde diferentes
+                        <b>rotores</b> cambian una letra por otra,
+                        hasta obtener una letra <b>completamente diferente</b> que se <b>ilumina en
+                            el teclado de arriba</b> (el <i>lightboard</i> en inglés).
+                    </p>
+                    <figure class="explicacion__photo">
+                        <img src="https://historycouk.s3.eu-west-2.amazonaws.com/s3fs-public/styles/768x432/public/2020-08/codebreaking.jpg"
+                            alt="maquina enigma antigua">
+                        <figcaption>Foto de una maquina enigma</figcaption>
+                    </figure>
+                    <p>
+                        <br> La <b>configuración del enigma</b> <i>(Enigma Einstellugen)</i> se refiere al tipo de
+                        <b>rotores</b> que se usan, el tipo de <b>reflector,</b> la <b>poscion inicial</b> de los
+                        rotores, la configuración del
+                        <b>ring</b> de los rotores y las <b>parejas del plugboard</b> (aunque esto se añadiría más
+                        adelante).
+                        No te preocupes más adelante explicaré cada uno de estos.
+                    </p>
+                    <p>
+                        <b>Solo</b> sabiendo esta configuracion inicial era posible <b>encriptar y desencriptar</b> mensajes. Asi que
+                        <b> si
+                            dos personas usaban los mismos <i>settings</i> se podian mandar informacion secreta sin que
+                            nadie
+                            más pudiera desencriptarla.</b>
+                        <br>
+                        <br>Y digo <b>solo</b> porque esta criptografía era algo <b>inquebrantable</b>. Y lo sigue siendo...Para un ser <b>humano</b> .
+                        <br>Gracias a la construcción de la primera <b>computadora</b> se logró <a href="https://www.youtube.com/watch?v=d2NWPG2gB_A" target="_blank">descifrar el Enigma</a>.
+                        <br><b>Pero alto ahí!</b>  No creas que con una computadora es <i>pum pam</i> y listo. Sera que... <a href="https://www.youtube.com/watch?v=RzWB5jL5RX0" target="_blank">¿Se puede romper el enigma con una laptop?</a>
+                    </p>
+                    <p>
+                        En la guerra los alemanes usaron el enigma para encriptar sus comunicaciones. Los enigmas del
+                        ejercito contaban con
+                        un <b>plugboard</b>. Una tabla para sustituir manualmente una letra por otra. Esto
+                        complicaba más la cosa y hacia sus mensajes <i>ultra</i> seguros.
+                    </p>
+                    <p>Y así habian <b>varias versiones</b> de la máquina, más <b>complejas</b> y más
+                        <b>seguras.</b>
+                        Por ejemplo la armada y la fuerza aerea usaban generalmente tres rotores mientras que la naval
+                        modificó el enigma y le <b>agregaron otro rotor más</b>,
+                        lo cual fue un verdadero dolor de cabeza para los cientificos en <b>Bletchley park </b> que
+                        intentaban descifrar el código.
+                    </p>
+                    <figure class="explicacion__photo">
+                        <img src="https://www.gchq.gov.uk/images/bletchley_WWII.jpg"
+                            alt="Foto de edificio de Bletchley Park por fuera">
+                        <figcaption>Bletchley Park, Inglaterra durante la segunda Guerra mundial. Fue el lugar donde
+                            matemáticos, historiadores y criptografos
+                            trabajaban en descifrar los mensajes del Enigma
+                        </figcaption>
+                    </figure>
+                </article>
+
+                <article class="elementos">
+                    <h3>ORDEN</h3>
+                    <p>
+                        El enigma toma la letra ingresada y en forma de <b>impulsos eléctricos</b> pasaba pasa por rotores de <b>derecha a izquierda.</b>
+                        hasta llegar a un <b>reflector</b>
+                        que regresaba la señal por cada uno de los rotores y mostraba el resultado encendiendo un
+                        <b>bombillo</b> revelando la tecla encriptada.
+                        <br>
+                        <br>Según el orden de los rotores dentro de la maquina. Estaba el <b>rotor rápido</b>
+                        (el de la esquina derecha).
+                        El rotor del medio. Y el <b>rotor lento</b>, el de la esquina izquierda.
+                    </p>
+                    <figure class="explicacion__photo grande">
+                        <img src="https://www.une.edu.au/__data/assets/image/0007/277153/The-Enigma-Pathway.PNG"
+                            alt="orden de encripcion enigma machine">
+                        <figcaption>Imagen obtenida de <a
+                                href="https://www.une.edu.au/info-for/visitors/museums/museum-of-antiquities/codebreaker-challenge/enigma">este</a>
+                            sitio </figcaption>
+                    </figure>
+
+                    <h3>ROTORES</h3>
+                    <p> El Enigma tenía por lo menos tres rotores. En cada rotor la letra ingresada era sustituida
+                        por otra letra. Además los rotores...bueno rotaban, esto permitia que <b>una letra no fuera encriptada de
+                        la misma forma dos veces.</b>
+                        Por ejemplo si escribías <b>AAAA</b> tendrías como resultado <b>BDZGO.</b> (Puedes probarlo con los settings iniciales de este Enigma)
+                    </p>
+                    <figure class="explicacion__photo">
+                        <img src="https://sothebys-md.brightspotcdn.com/3e/31/cceef6f7480d8d9d3c61e0ba5efe/018n10172-b8b4r.jpg"
+                            alt="Foto rotor">
+                        <figcaption>Imagen de rotor de maquina Enigma</figcaption>
+                    </figure>
+                    <p>
+                        <br>
+                        Para entender el proceso de encripción en el rotor hay que identificar varios
+                        elementos: tenemos el <b>cableado interno</b> (internal wiring), un <b>abc</b> que conectaba con
+                        el cableado, un <b>ring setting,</b> la
+                        <b>posicion inicial </b>del rotor y la posición del<b> notch.</b>
+                    </p>
+
+                    <section class="elemento__explicacion">
+                        <p>
+                            <b>WIRING</b> es simplemente la forma en que se sustituyen las letras (a esto se le conoce
+                            como un
+                            <b>cifrado de sustitución</b>). Los rotores se diferencian por la configuración de su
+                            cableado, y se
+                            nombran en <b>números romanos</b>.
+                            <br>
+                            <br><b>Por ejemplo el rotor III tiene el siguiente wiring:</b>
+
+                        </p>
+                        <div class="muestra__rotor">
+                        <ul class="ejemplo__rotor">
+                            <li>B</li>
+                            <li>D</li>
+                            <li>F</li>
+                            <li>H</li>
+                            <li class="resaltar-letra">J</li>
+                            <li>L</li>
+                            <li>C</li>
+                            <li>P</li>
+                            <li>R</li>
+                            <li>T</li>
+                            <li>X</li>
+                            <li>V</li>
+                            <li>Z</li>
+                            <li>N</li>
+                            <li>Y</li>
+                            <li>E</li>
+                            <li>I</li>
+                            <li>W</li>
+                            <li>G</li>
+                            <li>A</li>
+                            <li>K</li>
+                            <li>M</li>
+                            <li>U</li>
+                            <li>S</li>
+                            <li>Q</li>
+                            <li>O</li>
+                        </ul>
+                        <ul class="ejemplo__rotor">
+                            <li>A</li>
+                            <li>B</li>
+                            <li>C</li>
+                            <li>D</li>
+                            <li class="resaltar-letra">E</li>
+                            <li>F</li>
+                            <li>G</li>
+                            <li>H</li>
+                            <li>I</li>
+                            <li>J</li>
+                            <li>K</li>
+                            <li>L</li>
+                            <li>M</li>
+                            <li>N</li>
+                            <li>O</li>
+                            <li>P</li>
+                            <li>Q</li>
+                            <li>R</li>
+                            <li>S</li>
+                            <li>T</li>
+                            <li>U</li>
+                            <li>V</li>
+                            <li>W</li>
+                            <li>X</li>
+                            <li>Y</li>
+                            <li>Z</li>
+                        </ul>
+                    </div>
+                        <p>
+                            <br> Es decir que si escribimos una letra J y la pasamos por el rotor obtenemos una letra E
+                            <br>
+                            <br> Y mira que para que "la serie del rotor" tenga sentido hay que escribirlo junto con el abecedario.
+                            Por esto cada rotor también tenía un abecedario conectado por cables a su sustituto en el
+                            "wiring" del rotor.
+                            Asi que el abecedario y la serie propia del rotor giraban juntos.
+                        </p>
+                        <figure class="explicacion__photo">
+                            <img src="https://projects-static.raspberrypi.org/projects/octapi-brute-force-enigma/6ccc8ab6a325a8be73865c18a7dd3123af0c71dc/en/images/7X5A0921-closeup.png"
+                                alt="Foto rotor">
+                            <figcaption>Imagen de cableado de rotor</figcaption>
+                        </figure>
+                    </section>
+                    <section class="elemento__explicacion">
+                        <p>
+                            <b>ROTACIÓN:</b> el rotor gira tan pronto se oprime una tecla. Es decir que <b>antes
+                                de
+                                encriptar la letra ya se habian girado los rotores</b> (OJO solo los rotores que les tocaba
+                                girar). La frecuencia en que rotan
+                            depende del orden de estos dentro de la maquina.
+                            Si tenemos el rotor III. Cuando presionemos la primera letra, el wiring en realidad
+                            es el siguiente
+                            <br>
+                            <br> Antes de presionar la primera tecla: 
+                        </p>
+                        <div class="muestra__rotor">
+                            <p>
+                                <b>BDFHJLCPRTXVZNYEIWGAKMUSQO</b>
+                                <br><b>ABCDEFGHIJKLMNOPQRSTUVWXYZ</b>
+                            </p>
+
+                        </div>
+                         
+                            
+                        <p>Después de presionar la primera tecla: </p>
+                        <div class="muestra__rotor">
+                            <p>
+                            <b>DFHJLCPRTXVZNYEIWGAKMUSQOB</b>
+                            <br><b>BCDEFGHIJKLMNOPQRSTUVWXYZA</b>
+                            </p>
+                        </div>
+
+                            
+                        <p>
+                            <br><b>Bueno si pero...¿Cuándo gira cada rotor?</b>
+                            <br>Los rotores giran dependiendo de la posicion del <b>notch,</b> a excepción del rotor
+                            rápido que gira
+                            <b>cada vez que se presiona una tecla.</b> 
+                            <br>
+                            <br><b>El NOTCH es una letra,</b> es una <b>posición en el rotor que indica que el siguiente
+                                rotor puede avanzar en una posición.</b>
+                            Por ejemplo en el rotor III el notch es Q. Asi que, suponinedo que el rotor
+                            rapido sea el III y el rotor del medio sea el II, cuando el rotor este en la posicion de Q,
+                            el rotor II podrá avanzar en una posicion.
+                        </p>
+                        <p> <b>Hasta ahora parece fácil ¿no?</b>
+                            <br>Pero no creas que era todo tan sencillo como girar y sustituir las letras deacuerdo al
+                            wiring del rotor!
+                        </p>
+
+                        <figure class="explicacion__photo">
+                            <img src="https://live.staticflickr.com/5451/7063367271_ea98e540a3_b.jpg" alt="El rotor no es solo un wiring y ya!">
+                            <figcaption>Imagen de rotor a detalle</figcaption>
+                        </figure>
+
+                        <p>
+                            <br>
+                            Mira, mira el ancho de ese rotor <b>¿Tu crees que ahi solo estoy haciendo una sustitución?</b> 
+                            Efectivamente la respuesta es <b>no</b>
+                            <br>
+                            <br>Mira que en realidad estas haciendo son <b>dos sustituciones</b> .
+                            <br> La letra al entrar al rotor es sustituida por otra en el  <b>wiring</b>. Y luego esta
+                            letra resultante debe pasar por el abc del mismo rotor y salir por el abc normal.
+                            Tal vez esto suene muy enredado, pero si estas intentando hacer un simulador como yo espero
+                            que te sea de ayuda
+
+                        </p>
+
+                        <p><br> Pasa por el wiring del rotor</p>
+                        <div class="muestra__rotor">
+                        <ul class="ejemplo__rotor">
+                            <li class="resaltar-letra">A</li>
+                            <li>B</li>
+                            <li>C</li>
+                            <li>D</li>
+                            <li>E</li>
+                            <li>F</li>
+                            <li>G</li>
+                            <li>H</li>
+                            <li>I</li>
+                            <li>J</li>
+                            <li>K</li>
+                            <li>L</li>
+                            <li>M</li>
+                            <li>N</li>
+                            <li>O</li>
+                            <li>P</li>
+                            <li>Q</li>
+                            <li>R</li>
+                            <li>S</li>
+                            <li>T</li>
+                            <li>U</li>
+                            <li>V</li>
+                            <li>W</li>
+                            <li>X</li>
+                            <li>Y</li>
+                            <li>Z</li>
+                        </ul>
+                        <ul class="ejemplo__rotor">
+                            <li class="resaltar-letra">D</li>
+                            <li>F</li>
+                            <li>H</li>
+                            <li>J</li>
+                            <li>L</li>
+                            <li>C</li>
+                            <li>P</li>
+                            <li>R</li>
+                            <li>T</li>
+                            <li>X</li>
+                            <li>V</li>
+                            <li>Z</li>
+                            <li>N</li>
+                            <li>Y</li>
+                            <li>E</li>
+                            <li>I</li>
+                            <li>W</li>
+                            <li>G</li>
+                            <li>A</li>
+                            <li>K</li>
+                            <li>M</li>
+                            <li>U</li>
+                            <li>S</li>
+                            <li>Q</li>
+                            <li>O</li>
+                            <li>B</li>
+                        </ul>
+                    </div>
+                        <p><br> Pasa por el abc del rotor</p>
+                        <div class="muestra__rotor">
+
+                        <ul class="ejemplo__rotor">
+                            <li>B</li>
+                            <li>C</li>
+                            <li class="resaltar-letra">D</li>
+                            <li>E</li>
+                            <li>F</li>
+                            <li>G</li>
+                            <li>H</li>
+                            <li>I</li>
+                            <li>J</li>
+                            <li>K</li>
+                            <li>L</li>
+                            <li>M</li>
+                            <li>N</li>
+                            <li>O</li>
+                            <li>P</li>
+                            <li>Q</li>
+                            <li>R</li>
+                            <li>S</li>
+                            <li>T</li>
+                            <li>U</li>
+                            <li>V</li>
+                            <li>W</li>
+                            <li>X</li>
+                            <li>Y</li>
+                            <li>Z</li>
+                            <li>A</li>
+                        </ul>
+                        <ul class="ejemplo__rotor">
+                            <li>A</li>
+                            <li>B</li>
+                            <li class="resaltar-letra">C</li>
+                            <li>D</li>
+                            <li>E</li>
+                            <li>F</li>
+                            <li>G</li>
+                            <li>H</li>
+                            <li>I</li>
+                            <li>J</li>
+                            <li>K</li>
+                            <li>L</li>
+                            <li>M</li>
+                            <li>N</li>
+                            <li>O</li>
+                            <li>P</li>
+                            <li>Q</li>
+                            <li>R</li>
+                            <li>S</li>
+                            <li>T</li>
+                            <li>U</li>
+                            <li>V</li>
+                            <li>W</li>
+                            <li>X</li>
+                            <li>Y</li>
+                            <li>Z</li>
+                        </ul>
+                    </div>
+
+                        <p> <br>
+                            Si escribo la letra A y la paso por el rotor III . Primero se transforma en D y luego se
+                            transforma en una C.
+                            <br> Esto lo puedes ver mucho más claro en este <a href="https://piotte13.github.io/enigma-cipher/" target="_blank"> excelente simulador</a> 
+                        </p>
+
+                        <div>
+                        </div>
+                    </section>
+
+                        <h3>REFLECTOR</h3>
+                        <p>Entender el reflector es bastante sencillo. Simplemente se <b>sustituye la letra dependiendo del cableado interno del reflector</b> .
+                           <br> Por ejemplo el reflector UKW-B tiene la siguiente configuración:
+                        </p>
+                        <div class="muestra__rotor">
+
+                        <ul class="ejemplo__rotor">
+                            <li>A</li>
+                            <li>B</li>
+                            <li>C</li>
+                            <li>D</li>
+                            <li>E</li>
+                            <li>F</li>
+                            <li>G</li>
+                            <li>H</li>
+                            <li>I</li>
+                            <li>J</li>
+                            <li>K</li>
+                            <li>L</li>
+                            <li>M</li>
+                            <li>N</li>
+                            <li>O</li>
+                            <li>P</li>
+                            <li>Q</li>
+                            <li>R</li>
+                            <li class="resaltar-letra">S</li>
+                            <li>T</li>
+                            <li>U</li>
+                            <li>V</li>
+                            <li>W</li>
+                            <li>X</li>
+                            <li>Y</li>
+                            <li>Z</li>
+                        </ul>
+                        <ul class="ejemplo__rotor">
+                            <li>Y</li> <li>R</li> <li>U</li> <li>H</li> <li>Q</li> <li>S</li> <li>L</li> <li>D</li> <li>P</li> <li>X</li> <li>N</li> <li>G</li> <li>O</li> <li>K</li> <li>M</li> <li>I</li> <li>E</li> <li>B</li> <li class="resaltar-letra">F</li> <li>Z</li> <li>C</li> <li>W</li> <li>V</li> <li>J</li> <li>A</li> <li>T</li> 
+                        </ul>
+                    </div>
+
+
+                        <p>
+                           <br> Si introducimos una S nos devuelve una letra F
+                        </p>
+
+                        <h3>RING SETTING</h3>
+                        <p>
+                            El Ring setting es una cosa rara la verdad.  <b>Es la cantidad de veces que las letras del wiring van a avanzar una posicion en el abecedario</b> 
+                            Mejor vamos con un ejemplo:
+                            <br>
+                            <br>Con el rotor III tenemos un wiring de cuando el ring setting es de A - 01
+                        </p>
+                        <div class="muestra__rotor"> <p><b>BDFHJLCPRTXVZNYEIWGAKMUSQO</b> </p>  </div> 
+                        
+                        <p>Si el ring setting fuera de B - 02 el wiring del rotor III seria el siguiente:</p> 
+                        <div class="muestra__rotor"> <p> <b>CEGIKMDQSUYWAOZFJXHBLNVTRP</b>  </p>  </div> 
+
+                        <p>Y avanzamos el rotor en 2 posiciones</p>
+                        <div class="muestra__rotor"> <p> <b>PCEGIKMDQSUYWAOZFJXHBLNVTR</b>  </p>  </div> 
+
+                        <p> Si el ring setting fuera de C - 03 el wiring del rotor III seria el siguiente:</p>
+                        <div class="muestra__rotor"> <p><b>SQDFHJLNERTVZXBPAGKYICMOWU</b>   </p>  </div> 
+                        
+            
+                        <p>Y avanzamos el rotor en 3 posiciones</p>
+                        <div class="muestra__rotor"> <p> <b>PCEGIKMDQSUYWAOZFJXHBLNVTR</b>   </p>  </div> 
+
+                        <p>Viendo todas las <a href="https://www.youtube.com/watch?v=G2_Q9FoD-oQ&t=376s" target="_blank">posibilidades</a> de encripcion de 1 sola letra
+                            me imagino a Alan Turing asi:
+                        </p>
+                        <figure class="explicacion__photo grande">
+                        <img src="https://i.imgur.com/nOCyTrg.jpg" alt="Memem de conspirador loco">
+                        </figure>
+
+                </article>
+            </section>
+
+            <section class="goodbye">
+
+            <p>Y eso es todo por ahora! Te dejo un par de <b>links</b> (aunque estan en inglés) que me fueron de mucha ayuda. Y nos vemos en otro post</p>
+            <ul>
+                <li> La página de Wikipedia sobre los rotores <a href="https://en.wikipedia.org/wiki/Enigma_rotor_details"></a>Ir</li>
+                <li> Este comentario salvador de StackExchange <a href="https://crypto.stackexchange.com/questions/71231/enigma-rotation-example">Ir</a> </li>
+                <li> Otro comentario salvador de Stackoverflow <a href="https://stackoverflow.com/questions/28712506/enigma-replica-not-yielding-expected-result">Ir</a></li>
+                <li> Este otro emulador de enigma que esta muy cool <a href="https://www.101computing.net/enigma-machine-emulator/">Ir</a> </li>
+            </ul>
+
+        </section>
+
+        </div>
+    </main>
+
+     <footer id="footer">
+        <p class="footer__title">Gracias por leer hasta aqui!</p>
+        <section class="footer__social">
+            <div class="footer__social--container">
+                <a href="https://github.com/PaulaUzca"><span class="footer__social--logo"
+                        style="background-image: url(../../assets/icons/github-logo.svg);"></span></a>
+                <p class="footer__social--name">Github</p>
+            </div>
+            <div class="footer__social--container">
+                <a href="https://twitter.com/Pauzca15"><span class="footer__social--logo"
+                        style="background-image: url(../../assets/icons/twitter-logo.svg);"></span></a>
+                <p class="footer__social--name">Twitter</p>
+            </div>
+        </section>
+        <p class="footer__title">Made by Paula Uzcategui with 💜</p>
+    </footer> 
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>

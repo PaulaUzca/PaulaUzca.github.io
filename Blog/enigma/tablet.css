@@ -1,0 +1,90 @@
+header{
+    height: 210px;
+    position: relative;
+}
+.header__title{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0px;
+}
+.header__title a{
+    width: auto;
+}
+.title__fire{
+    width: 50px;
+    height: 64px;
+}
+.title__name{
+    width: 140px;
+    height: 110px;
+    margin: 0 auto;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.title__name.code{ display: none;}
+.title__name.potro{ display: none;}
+.title__name.wild{
+    width: 140px;
+    background-image: url(../../assets/icons/titulo.svg);
+}
+.title__fire{
+    display: block;
+}
+.header__subtitle{
+    margin-top: 10px;
+    margin-left: 0px;
+    font-weight: 500;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.side__menu{
+    position: absolute;
+    top: 0;
+}
+.side__menu ul{
+    margin: 0 auto;
+    left: 0;
+}
+.blog__title{
+    margin-top: 0;
+}
+.enigma{
+    display: grid;
+    grid-template-columns: 300px 300px;
+    grid-template-rows: 100px minmax(450px, auto);
+}
+.enigma__engine{
+    grid-row-start: 1;
+    width: 400px;
+    margin-left: 100px;
+}
+.enigma__view{
+    grid-row-start: 2;
+    grid-column-start: 1;
+    align-self: flex-start;
+}
+.enigma__paper{
+    grid-column-start: 2;
+    grid-row-start: 2;
+    align-self: flex-start;
+}
+.enigma__paper .paper__section{
+    min-height: 120px;
+}
+.enigma__my-settings{
+    margin-left: 15px;
+}
+.window__machine-info{
+    width: 500px;
+    left: calc(50% - 200px);
+}
+
+.muestra__rotor{
+    margin-right: 0px;
+    overflow-x:visible;
+    padding-left: 0px;
+    }

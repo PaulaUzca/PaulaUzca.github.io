@@ -1,0 +1,64 @@
+ body{
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: var(--darkblue);
+    }
+    .hide-bar{
+        right: 0;
+    }
+    .menu__button{
+        display: none;
+    }
+    .info-container{
+        max-width: 900px;
+    }
+    .enigma{
+        grid-template-columns: 550px 300px;
+    }
+    .enigma__engine{
+        margin-left: 150px;
+    }
+    .enigma__view{
+        flex-direction: row;
+        width: auto;
+    }
+    .enigma__hardware{
+        order: 2;
+        padding: 10px;
+        width: 400px;
+        height: 400px;
+    }
+    .enigma__hardware .board{
+        width: 380px;
+        height: 230px;
+        padding-top: 35px;
+        grid-template-rows: repeat(3, 35px);
+        grid-template-columns: repeat(10, 35px) ;
+        grid-column-gap: 2px;
+        grid-row-gap: 6px;
+    }
+    .board .letra{
+        width: 35px;
+        height: 35px;
+        padding-top: 5px
+    }
+    .letra p{
+        font-size: 2.2rem;
+    }
+
+    .enigma__plugboard{
+        order: 1;
+        height: 400px;
+        width: 150px;
+        margin-top: 0;
+        margin-right: 15px;
+    }
+    .plugboard__letter{
+        width: 30px;
+        height: 30px;
+        font-size: 1.7rem;
+        padding-top: 3px;
+    }
