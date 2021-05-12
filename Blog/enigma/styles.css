@@ -648,16 +648,18 @@ no rompan el diseño mobile*/
 
 .goodbye{
     width: 100%;
-    font-size: 1.8rem;
+    font-size: 2.2rem;
     margin-top: 50px;
     padding-left: 6px;
-
-}
-.goodbye ul{
-    width: 100%;
-    margin-top: 20px;
-    margin-bottom: 80px;
     display: flex;
     flex-direction: column;
     align-items: center;
+
+}
+.goodbye ul{
+    width: 70%;
+    min-width: 300px;
+    margin-top: 20px;
+    margin-bottom: 80px;
+
 }
