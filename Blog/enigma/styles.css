@@ -577,7 +577,7 @@ no rompan el diseño mobile*/
     .muestra__rotor{
     width: 100%;
     margin-right: 10px;
-    padding-left: 120px;
+    padding-left: 160px;
     overflow-x: scroll;
     display: flex;
     flex-direction: column;

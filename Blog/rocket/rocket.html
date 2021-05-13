@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pink Rocket</title>
+    <link rel="shortcut icon" href="../../assets/icons/pinkfire.svg">
+    <link rel="stylesheet" href="rocket.css">
+</head>
+<body>
+      
+    <main>
+        <div class="rocket__container">
+            <div class="body">
+                <div class="puntica"></div>
+                <div class="window_container">
+                    <div class="window"></div>
+                    <div class="window"></div>
+                    <div class="window"></div>
+                </div>
+                <div class="window_container">
+                    <div class="window"></div>
+                    <div class="window"></div>
+                    <div class="window"></div>
+                </div>
+                <div class="bottom"></div>
+            </div>
+            <div class="wing left"></div>
+            <div class="wing right"></div>
+            <div class="fuego"></div>
+        </div>
+
+    <div class="footer">
+        <p>Potro Rocket</p>
+        <p>I followed this <a href="https://www.youtube.com/watch?v=mAewuQPMFI8">tutorial</a></p>
+        <p>Go to <a href="https://wildpotrocode.com/">Wild Potro Code</a> for more cool stuff</p>
+        <p>Made by Paula Uzcategui with 💜</p>
+    </div>
+
+
+    </main>
+
+
+<script>
+    let starCount = 50;
+    let space = document.querySelector("main");
+    for(let i =0 ; i<starCount; i++ ){
+        space.innerHTML +=  "<div class='star'></div>";
+        let star = document.querySelectorAll(".star")[i];
+
+        let x = Math.floor(Math.random() * window.innerWidth) -3;
+        let h = Math.random() * 100;
+        let w = Math.random() * 3;
+        let duration = Math.random() * 1;
+
+        star.style.left = x + "px";
+        star.style.animationDuration = duration + 0.1 + "s";
+        star.style.height = 50 + h +"px";
+        star.style.width = w + "px";
+    }
+
+</script>
+</body>
+</html>
