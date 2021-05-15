@@ -34,7 +34,7 @@ h1{
 
 .rocket__container{
     z-index: 2;
-    margin-top: calc( 25% - 50px);
+    margin-top: 25vh;
     position: relative;
     animation: shake 0.3s infinite;
 }
@@ -158,8 +158,9 @@ h1{
     }
 }
 .footer{
+    position: absolute;
+    bottom: 20px;
     font-size: 1.8rem;
     font-weight: 500;
-    margin-top: 140px;
     text-align: center;
 }

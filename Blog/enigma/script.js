@@ -313,9 +313,8 @@ function iluminarLetra(letraEncriptada){
 
 //Boton clear input box
 document.getElementById("clearInputBox").addEventListener("click", function(){
-    textInput.value = "";
+    textInput.textContent = "";
     output.innerText = "";
-    //Hacer funcion de resetear settings
 });
 
 document.getElementById("encriptInput").addEventListener("click", function(){
@@ -351,7 +350,7 @@ document.getElementById("reset-settings").addEventListener("click", function(){
     startedEncription = false;
     document.getElementById("user-settings").textContent = "Tus Enigma Settings son:"
 
-    textInput.value = "";
+    textInput.textContent = "";
     output.innerText = "";
     contador = 0;  //Resetear espacio que se deja entre letras
 
