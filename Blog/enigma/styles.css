@@ -24,6 +24,9 @@ body{
     min-width: 320px;
     scroll-behavior: smooth;
 }
+a{
+    text-decoration: none;
+}
 body::-webkit-scrollbar-thumb{
     background-color: var(--potropink);
     border: 4px black;
@@ -175,13 +178,18 @@ main{
 }
 .blog__title{
     width: 100%;
-    margin-bottom: 15px;
+    margin-bottom: 3px;
     margin-top: 50px;
     font-size: 2.6rem;
     font-weight: 700;
 }
-
+.blogdate{
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-top: 3px;
+}
 .ejercicio1{
+    margin-top: 20px;
     color: var(--potropink);
     font-size: 2.2rem;
     font-weight: 600;
@@ -534,6 +542,15 @@ main{
     text-align: center;
   }
 
+  .explicacion__list{
+      align-self: center;
+    margin-bottom: 20px;
+  }
+  .explicacion__list li{
+    font-size: 2.2rem;
+    line-height: 2.7rem;
+  }
+
   .explicacion{
       width: 100%;
       min-width: 320px;
@@ -661,5 +678,12 @@ no rompan el diseño mobile*/
     min-width: 300px;
     margin-top: 20px;
     margin-bottom: 80px;
+}
+.goodbye a{
+    text-decoration: none;
+    color: var(--darkblue)
+}
+.goodbye a:hover{
+    color: var(--potropink);
 
 }

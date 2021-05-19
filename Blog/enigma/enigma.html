@@ -6,7 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index,follow">
-    <meta name="description" content="Simulador de la máquina de encriptación Enigma. Juega con este enigma rosado y encripta y desencripta tus mensajes secretos. Te explico cada uno de los elementos que componen esta ingeniosa máquina">
+    <meta name="description"
+        content="Simulador de la máquina de encriptación Enigma. Juega con este enigma rosado y encripta y desencripta tus mensajes secretos. Te explico cada uno de los elementos que componen esta ingeniosa máquina">
+    <meta property="og:image" content="https://i.imgur.com/qYqgsMp.png" />
     <title>Enigma Emulador Rosado</title>
     <link rel="shortcut icon" href="../../assets/icons/pinkfire.svg">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -44,6 +46,7 @@
         </nav>
         <div class="info-container">
             <h1 class="blog__title">DIE <b style="color: var(--potropink)">PINKE</b> ENIGMA MASCHINE</h1>
+            <p class="blogdate">11/05/2021</p>
             <p class="ejercicio1"> No cambies los settings y prueba: KOBLJ KHTME LUL </p>
             <section class="enigma">
                 <section class="enigma__view">
@@ -151,24 +154,26 @@
             <article class="intro">
                 <p> <i> <b>La Máquina Enigma</b></i> ¿que nombre tan cool no?
                     <br>Desde hace un tiempo he estado aprendiendo un poco de
-                    <b>criptografía </b>y me he encontrado con el famosisímo Enigma, una máquina de encripctación usada por
+                    <b>criptografía </b>y me he encontrado con el famosísimo Enigma. Una máquina de encriptación usada
+                    por
                     los
                     alemanes en la <b>Segunda Guerra Mundial</b>.
                 </p>
                 <p> <br>Como te imaginarás, romper el código enigma fue un problema muy importante
-                    para los aliados, por lo que se armó toda una operación para descifrar estos mensajes secretos. En
+                    para los aliados. Por lo que se armó toda una operación para descifrar estos mensajes secretos. En
                     esta misión estaba <b>Alan Turing</b> quien junto con su equipo creó la primera computadora con la
                     cual
                     consiguió
                     romper el enigma y ayudó a ganar la guerra.
                 </p>
                 <p>
-                    <br> Entonces aqui traigo <b>mi emulador del enigma!</b> No te voy a mentir, este programa fue un
-                    reto, pero una
+                    <br> ¡Entonces aquí traigo <b>mi emulador del enigma!</b> No te voy a mentir, este programa fue un
+                    reto al principio. Pero una
                     vez entendí como funcionaban la máquina a profundidad, el código se me hizo mucho más fácil de
                     escribir! (Hablaré de eso más adelante)
                 </p>
-                <p> <br> <b>Aqui te dejo el link a el <a href="https://github.com/PaulaUzca/Enigma">repositorio en github</a></b></p>
+                <p> <br> <b>Aquí te dejo el link al <a href="https://github.com/PaulaUzca/Enigma">repositorio en
+                            GitHub</a></b></p>
 
             </article>
 
@@ -176,29 +181,29 @@
                 <article class="funcionamiento">
                     <h3>EN ESTE BLOG</h3>
                     <p>
-                        <b>Investigando</b> el funcionamiento del enigma en <b>internet,</b> me encontre con terminos y
+                        <b>Investigando</b> el funcionamiento del enigma en <b>internet,</b> me encontré con términos y
                         explicaciones
-                        tan tecnicas y <i>jeroglíficas</i> que me hicieron preguntarme <b>¿No hay una forma de
+                        tan técnicas y <i>jeroglíficas</i> que me hicieron preguntarme <b>¿No hay una forma de
                             explicarle esto a un
                             simple mortal como yo?</b>
-                        <br>Y es que encontrar una explicación que realmente me guiara en la dirección correcta para
-                        escribir un <b>algoritmo</b> para una computadora se me hizo muy dificil! (Por ahi leí que esto
+                        <br>¡Y es que encontrar una explicación que realmente me guiara en la dirección correcta para
+                        escribir un <b>algoritmo</b> para una computadora se me hizo muy difícil! (Por ahí leí que esto
                         se
-                        debe a que la información sobre el enigma era <b>top secret</b> hasta hace algunos años).
-                        <br> Pero gracias a varios comentarios salvadores en <b>blogs de criptografía</b> y en
-                        <b>stackoverflow</b> fue que hice este simulador.
-                        Asi que en este post encontrarás <b>mis apuntes</b> sobre como funciona el enigma.
+                        debe a que la información sobre el enigma era <b><i>top secret</i></b> hasta hace algunos años).
+                        <br> Fue gracias a varios comentarios salvadores en <b>blogs de criptografía</b> y en
+                        <b>stackoverflow</b> que hice este simulador.
+                        En fin... En este post encontrarás <b>mis apuntes</b> sobre como funciona el enigma.
                     </p>
 
                     <h3>UN POCO MÁS DE HISTORIA</h3>
                     <p>
-                        El enigma fue creado por los alemanes desde <b>antes de la guerra,</b> y la gente lo compraba
+                        El enigma fue creado por los alemanes desde <b>antes de la guerra.</b> La gente lo compraba
                         para encriptar sus mensajes y poder comunicarse en secreto.
-                        <br>Pues <b>usar el enigma es bastante fácil</b>. Tiene la apariencia de una maquina de
-                        escribir, y al
-                        presionar una tecla esta pasa por un <b>proceso de encripción</b> donde diferentes
-                        <b>rotores</b> cambian una letra por otra,
-                        hasta obtener una letra <b>completamente diferente</b> que se <b>ilumina en
+                        <br>Pues <b>usar el enigma es bastante fácil</b>. Tiene la apariencia de una máquina de
+                        escribir. Al
+                        presionar una tecla esta pasa por un <b>proceso de encriptación</b> donde diferentes
+                        <b>rotores</b> cambian una letra por otra.
+                        Hasta obtener una letra <b>completamente diferente</b> que se <b>ilumina en
                             el teclado de arriba</b> (el <i>lightboard</i> en inglés).
                     </p>
                     <figure class="explicacion__photo">
@@ -207,52 +212,59 @@
                         <figcaption>Foto de una máquina enigma</figcaption>
                     </figure>
                     <p>
-                        <br> La <b>configuración del enigma</b> <i>(Enigma Einstellugen</i> en alemán) se refiere al
-                        tipo de
-                        <b>rotores</b> que se usan, el tipo de <b>reflector,</b> la <b>posición inicial</b> de los
-                        rotores, la configuración del
-                        <b>ring</b> de los rotores y las <b>parejas del plugboard</b> (aunque esto se añadiría más
-                        adelante).
+                        <br> La <b>configuración del enigma</b> <i>(Enigma Einstellugen</i> en alemán) se refiere a:
+                    </p>
+                    <ul class="explicacion__list">
+                        <li>Tipo de <b>rotores</b> que se usan</li>
+                        <li>Tipo de <b>reflector</b></li>
+                        <li>La <b>posición inicial</b> de los
+                            rotores</li>
+                        <li>La configuración del
+                            <b>ring</b> de los rotores</li>
+                        <li>Las <b>parejas del plugboard</b> (aunque esto se añadiría más
+                            adelante).</li>
+                    </ul>
+                    <p>
                         No te preocupes más adelante explicaré cada uno de estos.
                     </p>
                     <p>
-                        <b>Solo</b> sabiendo esta configuracion inicial era posible <b>encriptar y desencriptar</b>
-                        mensajes. Asi que
-                        <b> si dos personas usaban los mismos <i>settings</i> se podian mandar información secreta sin
+                        <b>Solo</b> sabiendo esta configuración inicial era posible <b>encriptar y desencriptar</b>
+                        mensajes.
+                        <b> Si dos personas usaban los mismos <i>settings</i> se podían mandar información secreta sin
                             que
                             nadie más pudiera desencriptarla.</b>
                         <br>
-                        <br>Y digo <b>solo</b> porque esta criptografía era algo <b>indescifrable</b>. Y lo sigue
-                        siendo...Para un ser <b>humano.</b>
-                        <br>Gracias a la construcción de la primera <b>computadora</b> se logró <a
-                            href="https://www.youtube.com/watch?v=d2NWPG2gB_A" target="_blank">descifrar el Enigma</a>.
+                        <br>Y digo <b>solo</b> porque esta criptografía era algo <b>imposible de descifrar</b> si no se contaba con la clave. Y lo sigue
+                        siendo... Para un ser <b>humano.</b>
+                        <br>Gracias a la construcción de la primera <b>computadora</b> se lograron <a
+                            href="https://www.youtube.com/watch?v=d2NWPG2gB_A" target="_blank">desencriptar mensajes del Enigma</a>.
                         <br><b>¡Pero alto ahí!</b> No creas que solo con el poder de una computadora es <i>pum pam</i> y
-                        listo. Sera que... <a href="https://www.youtube.com/watch?v=RzWB5jL5RX0" target="_blank">¿Se
+                        listo. Será que... <a href="https://www.youtube.com/watch?v=RzWB5jL5RX0" target="_blank">¿Se
                             puede romper el enigma con una laptop?</a>
                     </p>
                     <p>
                         En la guerra los alemanes usaron el enigma para encriptar sus comunicaciones. Los enigmas del
-                        ejercito contaban con
+                        ejército contaban con
                         un <b>plugboard</b>. Una tabla para sustituir manualmente una letra por otra. Esto
                         complicaba más la cosa y hacia sus mensajes <i>ultra</i> seguros.
                     </p>
                     <figure class="explicacion__photo">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/2/27/Enigma-plugboard.jpg"
                             alt="Foto del pllugboard de un enigma">
-                        <figcaption>Asi se veia un Plugboard. Las letras eran conectadas por cables</figcaption>
+                        <figcaption>Así se veía un Plugboard. Las letras eran conectadas por cables</figcaption>
                     </figure>
-                    <p>Y así habian <b>varias versiones</b> de la máquina. Más <b>complejas</b> y más
+                    <p> Existieron <b>varias versiones</b> de la máquina. Más <b>complejas</b> y más
                         <b>seguras.</b>
-                        Por ejemplo la armada y la fuerza aerea usaban generalmente tres rotores mientras que la naval
-                        modificó el enigma y le <b>agregaron otro rotor más</b>,
-                        lo cual fue un verdadero dolor de cabeza para los cientificos en <b>Bletchley park </b> que
+                        Por ejemplo la armada y la fuerza aérea usaban generalmente tres rotores. Mientras que la naval
+                        modificó el enigma y le <b>agregaron otro rotor más.</b>
+                        Esto fue un verdadero dolor de cabeza para los científicos en <b>Bletchley park </b> que
                         intentaban descifrar el código.
                     </p>
                     <figure class="explicacion__photo">
                         <img src="https://www.gchq.gov.uk/images/bletchley_WWII.jpg"
                             alt="Foto de edificio de Bletchley Park por fuera">
                         <figcaption>Bletchley Park, Inglaterra durante la segunda Guerra mundial. Fue el lugar donde
-                            matemáticos, historiadores y criptografos
+                            matemáticos, historiadores y criptógrafos
                             trabajaban en descifrar los mensajes del Enigma
                         </figcaption>
                     </figure>
@@ -261,13 +273,13 @@
                 <article class="elementos">
                     <h3>ORDEN</h3>
                     <p>
-                        El enigma toma la letra ingresada y en forma de <b>impulsos eléctricos</b> se pasaba por varios
+                        El enigma toma la letra ingresada y en forma de <b>impulsos eléctricos</b> la pasaba por varios
                         rotores de <b>derecha a izquierda.</b>
-                        hasta llegar a un <b>reflector</b>
-                        que regresaba la señal por esos mismos los rotores y mostraba el resultado encendiendo un
+                        Hasta llegar a un <b>reflector</b>
+                        que regresaba la señal por esos mismos rotores. Y mostraba el resultado encendiendo un
                         <b>bombillo</b> revelando la tecla encriptada.
                         <br>
-                        <br>Según el orden de los rotores dentro de la maquina. Estaba el <b>rotor rápido</b>
+                        <br>Según el orden de los rotores dentro de la máquina. Estaba el <b>rotor rápido</b>
                         (el de la esquina derecha).
                         El rotor del medio. Y el <b>rotor lento</b>, el de la esquina izquierda.
                     </p>
@@ -280,12 +292,12 @@
                     </figure>
 
                     <h3>ROTORES</h3>
-                    <p> El Enigma tenía por lo menos tres rotores. En cada rotor la letra ingresada era sustituida
-                        por otra letra. Además los rotores...bueno rotaban, esto permitía que <b>una letra no fuera
+                    <p> El Enigma tenía <b>por lo menos tres rotores.</b> En cada rotor la letra ingresada era sustituida
+                        por otra letra. Además los rotores...bueno rotaban. Esto permitía que <b>una letra no fuera
                             encriptada de
                             la misma forma dos veces.</b>
                         Por ejemplo si escribías <b>AAAA</b> tendrías como resultado <b>BDZGO.</b> (Puedes probarlo con
-                        la configuración iniciales de este Enigma)
+                        la configuración inicial de este Enigma)
                     </p>
                     <figure class="explicacion__photo">
                         <img src="https://sothebys-md.brightspotcdn.com/3e/31/cceef6f7480d8d9d3c61e0ba5efe/018n10172-b8b4r.jpg"
@@ -295,19 +307,27 @@
                     <p>
                         <br>
                         Para entender el proceso de encriptación en el rotor hay que identificar varios
-                        elementos: tenemos el <b>cableado interno</b> (internal wiring), un <b>abc</b> que conectaba con
-                        el cableado, un <b>ring setting,</b> la
-                        <b>posicion inicial </b>del rotor y la posición del<b> notch.</b>
+                        elementos:
                     </p>
+                    <ul class="explicacion__list">
+                        <li>El <b>cableado interno</b> (internal wiring en inglés)</li>
+                        <li>Un <b>abc</b> que conectaba con
+                            el cableado</li>
+                        <li>Un <b>ring setting</b> (configuración del anillo)</li>
+                        <li>La <b>posición inicial </b>antes de que el rotor de su primer paso</li>
+                        <li>la posición del<b> notch.</b></li>
+                        </ul>
+                    </ul>
 
                     <section class="elemento__explicacion">
                         <p>
-                            <b>WIRING</b> es simplemente la forma en que se sustituyen las letras (a esto se le conoce
-                            como un <b>cifrado de sustitución</b>). Los rotores se diferencian por la configuración de
+                            <br>
+                            <b>WIRING</b> 
+                            <br> Es simplemente la forma en que se sustituyen las letras (ver <a href="https://es.wikipedia.org/wiki/Cifrado_por_sustituci%C3%B3n#:~:text=En%20criptograf%C3%ADa%2C%20el%20cifrado%20por,de%20lo%20anterior%2C%20entre%20otros.">cifrado de sustitución</a>). Los rotores se diferencian por la configuración de
                             su
                             cableado, y se nombran en <b>números romanos</b>.
                             <br>
-                            <br><b>Por ejemplo el rotor III tiene el siguiente wiring:</b>
+                            <br><b>Por ejemplo el rotor III tiene el siguiente cableado:</b>
                         </p>
                         <div class="muestra__rotor">
                             <ul class="ejemplo__rotor">
@@ -370,11 +390,11 @@
                         <p>
                             <br> Es decir que si escribimos una letra J y la pasamos por el rotor obtenemos una letra E
                             <br>
-                            <br> Y mira que para que esta serie de letras tenga sentido hay que escribirlo junto con el
-                            abecedario.
-                            Por eso cada rotor también tenía un abecedario conectado por cables a su sustituto en el
+                            <br> Y mira que para que esta serie de letras tenga sentido <b>hay que escribirlo junto con el
+                                abecedario.</b> 
+                            Por eso <b>cada rotor tenía un abecedario</b> conectado por cables a su sustituto en el
                             "wiring" del rotor.
-                            <b>Asi que el abecedario y la serie propia del rotor giraban juntos.</b>
+                            <b>El abecedario y la serie propia del rotor giraban juntos.</b>
                         </p>
                         <figure class="explicacion__photo">
                             <img src="https://projects-static.raspberrypi.org/projects/octapi-brute-force-enigma/6ccc8ab6a325a8be73865c18a7dd3123af0c71dc/en/images/7X5A0921-closeup.png"
@@ -383,22 +403,28 @@
                         </figure>
                     </section>
                     <section class="elemento__explicacion">
-                        <p>POSICIÓN INICIAL es la posición en que va a empezar cada rotor. Puede ser una de las letras del abecedario desde la A a la Z.
-                             Porque cada rotor incluía un abc junto a su "wiring". Esto se usaba para ver donde era el estado del rotor.
-                            Verás que si comienzas a escribir con el rotor rápido desde la posición B, obtendrás un resultado difrente a si empiezas a encriptar desde la posición A </p>
+                        <p> <br>
+                            <b>POSICIÓN INICIAL</b>
+                            <br> Es la posición en que va a empezar cada rotor. Puede ser representado por las letras
+                            del abecedario desde la A a la Z.
+                            Porque cada rotor incluía un abc junto a su serie de cableado. Esta variable indica el estado del rotor dentro de la máquina.
+                            Verás que si comienzas a escribir con el rotor rápido desde la posición inicial B, obtendrás un
+                            resultado difrente a si empiezas a encriptar desde la posición F</p>
                     </section>
 
                     <section class="elemento__explicacion">
                         <p>
-                            <b>ROTACIÓN:</b> el rotor gira tan pronto se oprime una tecla. Es decir que <b>antes
+                            <br>
+                            <b>ROTACIÓN:</b>
+                            <br>El rotor gira tan pronto se oprime una tecla. Es decir que <b>antes
                                 de
                                 encriptar la letra ya se habían girado los rotores</b> (OJO solo los rotores que les
                             tocaba
-                            girar). Recordemos que la frecuencia en que rotan depende del orden de estos dentro de la
-                            máquina.
+                            girar. Recordemos que la frecuencia en que rotan depende del orden de estos dentro de la
+                            máquina).
+                            <br>
                             Si tenemos el rotor III con posición inicial A. Cuando presionemos una letra por primera
-                            vez, el wiring en realidad
-                            es el siguiente
+                            vez. El estado del rotor será el siguiente
                             <br>
                             <br> Antes de presionar la primera tecla:
                         </p>
@@ -421,19 +447,19 @@
 
 
                         <p>
-                            <br><b>Bueno si pero...¿Cuándo gira cada rotor?</b>
-                            <br>Los rotores giran dependiendo de la posición del <b>notch,</b> a excepción del rotor
+                            <br><b>Bueno si pero...¿CUÁNDO GIRA CADA ROTOR?</b>
+                            <br>Los rotores giran dependiendo de la posición del <b>NOTCH.</b> A excepción del rotor
                             rápido que gira <b>cada vez que se presiona una tecla.</b>
                             <br>
-                            <br><b>El NOTCH es una letra,</b> es un <b>punto en el rotor que indica que el siguiente
+                            <br><b>El NOTCH es una letra.</b> Es un <b>punto en el rotor que indica que el siguiente
                                 rotor puede avanzar en una posición.</b>
-                            Por ejemplo en el rotor III el notch es Q. Asi que, suponinedo que el rotor
-                            rápido sea el III y el rotor del medio sea el II, cuando el III este en la posicion de Q,
-                            el rotor II podrá avanzar en una posicion.
+                            Por ejemplo en el rotor III el notch es Q. Suponiendo que el rotor
+                            rápido sea el III y el rotor del medio sea el II, cuando el III esté en la posición de Q.
+                            El rotor II podrá avanzar en una posición.
                         </p>
-                        <p> <b>Hasta ahora parece fácil ¿no?</b>
-                            <br>¡Pero no creas que era todo tan sencillo como girar y sustituir las letras deacuerdo al
-                            wiring del rotor!
+                        <p> <b>Hasta ahora no parece tan complicado ¿no?</b>
+                            <br>¡Pero no creas que era todo tan sencillo como girar y sustituir las letras según el
+                            cableado de cada rotor!
                         </p>
 
                         <figure class="explicacion__photo">
@@ -444,15 +470,15 @@
 
                         <p>
                             <br>
-                            Mira, mira el ancho de ese rotor <b>¿Tu crees que ahí solo estoy haciendo una
+                            Mira, mira el ancho de ese rotor <b>¿Tú crees que ahí solo estoy haciendo una
                                 sustitución?</b>
                             Efectivamente la respuesta es <b>no</b>
                             <br>
-                            <br>En realidad se hacen <b>dos sustituciones</b> .
-                            <br> La letra al entrar al rotor es sustituida por otra en el <b>wiring</b>. Y luego esta
-                            letra resultante debe pasar por el abc del mismo rotor y salir por el abc normal.
-                            Tal vez esto suene muy enredado, pero si estas intentando hacer un simulador como yo espero
-                            que te sea de ayuda
+                            <br>En realidad se hacen <b>dos sustituciones.</b>
+                            <br>La letra al entrar al rotor es sustituida por según el <b>cableado</b>.  Luego esta
+                            letra resultante debe pasar por el <b>ABC</b> del mismo rotor. Y La letra resultante vuelve a ser sustituida según el orden del ABC normal.
+                            Tal vez esto suene muy enredado. Pero si estás intentando hacer un simulador como yo espero
+                            que te sea de ayuda. Vamos con un ejemplo:
 
                         </p>
 
@@ -577,16 +603,17 @@
                         </div>
 
                         <p> <br>
-                            Si escribo la letra A y la paso por el rotor III . Primero se transforma en D y luego se
+                            Si escribo la letra A y la paso por el rotor III. Primero se transforma en D y luego se
                             transforma en una C.
                             <br> Esto lo puedes ver mucho más claro en este <a
                                 href="https://piotte13.github.io/enigma-cipher/" target="_blank"> excelente
                                 simulador</a>
-                            <br>Y si estabas prestando atención te diste cuenta que en el <b>orden</b> de encriptación
+                            <br>Y si estabas prestando atención te diste cuenta de que en el <b>orden</b> de encriptación
                             tenemos que la letra pasa por los rotores y <b>se regresa</b>.
-                            Al regresarse tomaba <b>este mismo recorrido</b> pero <b>al revés</b>. Es decir que
-                            <b>primero pasaba por el abc del rotor y luego pasaba por el "wiring"
+                            Al regresarse toma <b>este mismo recorrido</b> pero <b>al revés</b>. Es decir que
+                            <b>primero es sustituida en el abc del rotor y luego sustituida en el cableado
                                 de este.</b>
+                            <br> Es decir, tres sustituciones más.
                         </p>
 
                         <div>
@@ -665,18 +692,18 @@
 
                     <h3>RING SETTING</h3>
                     <p>
-                        LLegamos a la parte <i>tricki</i>. El ring setting. Una cosa rara y enredada. Del diablo se
-                        prodría decir. <b>Es la cantidad de veces que las letras del wiring (OJO que por wiring me
+                        Llegamos a la parte <i>tricki</i>. El ring setting. Una cosa rara y enredada. Del diablo se
+                        podría decir. <b>Es la cantidad de veces que las letras del cableado (OJO que por cableado me
                             refiero a la serie propia de cada rotor) van a avanzar una posición en el abecedario</b>
                         Mejor vamos con un ejemplo:
                         <br>
-                        <br>Con el rotor III tenemos un wiring de cuando el ring setting es de A - 01
+                        <br>Con el rotor III tenemos el siguiente cableado cuando el ring setting es de A - 01
                     </p>
                     <div class="muestra__rotor">
                         <p><b>BDFHJLCPRTXVZNYEIWGAKMUSQO</b> </p>
                     </div>
 
-                    <p>Si el ring setting fuera de B - 02 el wiring del rotor III seria el siguiente:</p>
+                    <p>Si el ring setting fuera de B - 02 el cableado del rotor III sería el siguiente:</p>
                     <div class="muestra__rotor">
                         <p> <b>CEGIKMDQSUYWAOZFJXHBLNVTRP</b> </p>
                     </div>
@@ -686,7 +713,7 @@
                         <p> <b>PCEGIKMDQSUYWAOZFJXHBLNVTR</b> </p>
                     </div>
 
-                    <p> Si el ring setting fuera de C - 03 el wiring del rotor III sería el siguiente:</p>
+                    <p> Si el ring setting fuera de C - 03 el cableado del rotor III sería el siguiente:</p>
                     <div class="muestra__rotor">
                         <p><b>SQDFHJLNERTVZXBPAGKYICMOWU</b> </p>
                     </div>
@@ -698,8 +725,8 @@
                     </div>
 
                     <p>Viendo toooodas las <a href="https://www.youtube.com/watch?v=G2_Q9FoD-oQ&t=376s"
-                            target="_blank">posibles formas</a> en que se puede encriptar <b>1 sola letra</b>
-                        me imagino a Alan Turing asi:
+                            target="_blank">posibles formas</a> en que se puede encriptar <b>una sola letra</b>
+                        me imagino a Alan Turing así:
                     </p>
                     <figure class="explicacion__photo grande">
                         <img src="https://i.imgur.com/nOCyTrg.jpg" alt="Memem de conspirador loco">
@@ -710,18 +737,18 @@
 
             <section class="goodbye">
 
-                <p>Y eso es todo por ahora! Te dejo un par de <b>links</b> (aunque estan en inglés) que me fueron de
+                <p>Y eso es todo por ahora! Te dejo un par de <b>links</b> (aunque están en inglés) que me fueron de
                     mucha ayuda. Y nos vemos en otro post</p>
                 <ul>
-                    <li> La página de Wikipedia sobre los rotores <a
-                            href="https://en.wikipedia.org/wiki/Enigma_rotor_details">Visitar</a></li>
-                    <li> Este comentario salvador de StackExchange <a
-                            href="https://crypto.stackexchange.com/questions/71231/enigma-rotation-example">Visitar</a> </li>
-                    <li> Otro comentario salvador de Stackoverflow <a
-                            href="https://stackoverflow.com/questions/28712506/enigma-replica-not-yielding-expected-result">Visitar</a>
-                    </li>
-                    <li> Este otro emulador de enigma que esta muy cool <a
-                            href="https://www.101computing.net/enigma-machine-emulator/">Visitar</a> </li>
+                    <li><a href="https://en.wikipedia.org/wiki/Enigma_rotor_details">La página de Wikipedia sobre los
+                            rotores</a></li>
+                    <li><a href="https://crypto.stackexchange.com/questions/71231/enigma-rotation-example"> Este
+                            comentario salvador de StackExchange</a> </li>
+                    <li><a
+                            href="https://stackoverflow.com/questions/28712506/enigma-replica-not-yielding-expected-result">Otro
+                            comentario salvador de Stackoverflow</a></li>
+                    <li><a href="https://www.101computing.net/enigma-machine-emulator/">Este otro emulador de enigma que
+                            esta muy cool</a> </li>
                 </ul>
 
             </section>

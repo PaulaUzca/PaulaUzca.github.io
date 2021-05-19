@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:image" content="https://i.imgur.com/1yCU224.png" />
+    <title>Ovni</title>
+    <link rel="stylesheet" href="ovni.css">
+    <link rel="shortcut icon" href="../../assets/icons/pinkfire.svg">
+</head>
+<body>
+<main>
+    <section class="info">
+        <p>OVNI</p>
+        <p>See more at <a href="https://wildpotrocode.com/">Wild Potro Code</a></p>
+    </section>
+
+    <div class="ovni__container">
+        <div class="ovni__glass"></div>
+        <div class="ovni__plate">
+            <div class="light"></div>
+            <div class="light"></div>
+            <div class="light"></div>
+        </div>
+        <div class="ovni__halo"></div>
+    </div>
+</main>
+
+<section class="background">
+
+</section>
+
+<script>
+    //  Ovni se mueve de arriba a abajo
+    let ovni = document.querySelectorAll(".ovni__container")[0];
+    let factor = 1;
+    function moveSeno(){
+        diff = Math.random() * 50;
+        valueY = 50 * factor + diff + 100;// Le sumo diff para que siempre sea un valor un tanto diferente y 100 para que no quede tan arriba
+        ovni.style.top= `${valueY}px` // Lo podria hacer con transform translateY pero me generaba conflicto porque lo usaba en moveOvni
+        factor= -(factor); // Cambio el signo del factor para que en la siguiente iteración baje
+    }
+    moveSeno(); //Para que comience con un movimiento
+    let interval = window.setInterval(moveSeno, 500); //Repito cada 0.5s
+
+    // El fondo esta lleno de estrellas que se mueven
+    let space = document.querySelector(".background");
+    let starCount = 20;
+    function setStars(){
+    for(let i =0; i<starCount; i++){
+        space.innerHTML += "<span class='star'></span>";
+        let thisStar = space.querySelectorAll(".star")[i]; // aka La estrella que acabo de crear
+        let font = Math.random() * 3 + 0.5; 
+        let top = Math.floor(Math.random() * space.offsetHeight / 2); //Por alguna razon el offset completo era demasiado grande y hacia overflow
+        let duration = Math.random() * 8 + 1; // deeberia durar por lo menos 1s
+        thisStar.style.fontSize= font + "rem";
+        thisStar.style.top =  top + "px";
+        thisStar.style.animationDuration = duration + "s";
+    }
+}
+    setStars();
+
+</script>
+</body>
+</html>

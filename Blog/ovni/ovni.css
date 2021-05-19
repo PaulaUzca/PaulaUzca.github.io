@@ -1,0 +1,227 @@
+:root{
+    --potropink: #FF8EE3;
+    --softpink: #E7A8E4;
+    --softblue: #99ACEA;
+    --darkblue: #060841;
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+}
+body{
+    overflow: hidden;
+}
+.info{
+    font-size: 1.3rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    color: white;
+    justify-self: flex-start;
+    align-self: flex-start;
+    padding: 20px;
+}
+.info a{
+    color: var(--potropink);
+    text-decoration: none;
+}
+main{
+    width: 100vw;
+    height: 100vh;
+    z-index: 2;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--darkblue);
+    background: linear-gradient(195deg, rgba(6,8,65,1) 0%, rgba(87,90,177,1) 100%);
+}
+.ovni__container{
+    width: auto;
+    height: auto;
+    position: absolute;
+    animation: moveOvni 3s ease-in-out infinite;
+    transition: all 0.5s ease-in-out;
+}
+
+@keyframes moveOvni {
+    0%{
+        transform: translateX(calc(-50vw - 200px));
+    }
+    40%{
+        transform: translateX(0px);
+    }
+    60%{
+        transform: translateX(0px);
+    } 
+    100%{
+        transform: translateX( calc(50vw + 200px));
+    }
+}
+
+.ovni__glass{
+    position: relative;
+    z-index: 4;
+    width: 150px;
+    height: 100px;
+    border-top-left-radius: 200px;
+    border-top-right-radius: 200px;
+    background-color: #BEF1CD;
+}
+.ovni__glass::before{
+    content: "";
+    position: absolute;
+    width: 70px;
+    height: 60px;
+    border-radius: 110px 10px;
+    background-color: #C4FFCE;
+    transform: translateY(10px)translateX(10px);
+}
+
+.ovni__plate{
+    width: 200px;
+    height: 45px;
+    z-index: 5;
+    position: absolute;
+    bottom: -18px;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    right: calc(50% - 100px);
+    clip-path: ellipse(50% 60% at 50% 70%);
+    background-color: #9BE3CC;
+
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.light{
+    width: 20px;
+    height: 20px;
+    margin-top: 15px;
+    border-radius: 50%;
+    background-color: #FFFA76;
+}
+.light::before{
+    content: "";
+    display: block;
+    width:10px;
+    height:10px;
+    background-color:#ffffcc;
+    border-radius: 50%;
+    transform: translateY(8px)translateX(6px);
+}
+
+.ovni__halo{
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 60px;
+    left: calc( 50% - 90px);
+    z-index: 3;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-style: solid;
+    border-color: transparent transparent #EFFFDD transparent;
+    animation: moveLight 2s ease-in-out infinite;
+}
+
+@keyframes moveLight {
+    0%{
+        border-width: 0 90px 200px 90px;
+    }
+    50%{
+        border-width: 0 90px 400px 90px;
+    }
+    100%{
+        border-width: 0 90px 200px 90px;
+    }
+}
+.ovni__halo::before{
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    margin-left: -80px;
+    filter: blur(20px);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-style: solid;
+    border-width: 0 80px 200px 80px;
+    border-color: transparent transparent #fcff9e transparent;
+    animation: moveLight2 2s ease-in-out infinite;
+
+}
+
+@keyframes moveLight2 {
+    0%{
+        border-width: 0 80px 200px 80px;
+    }
+    50%{
+        border-width: 0 80px 400px 80px;
+    }
+    100%{
+        border-width: 0 80px 200px 80px;
+    }
+}
+
+.background{
+    position: absolute;
+    top: 0px;
+    z-index: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+
+.star{
+    position: absolute;
+    z-index: 0;
+    content: "\2726";
+    animation-name: moveSpace;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes moveSpace {
+    0%{
+        transform: translateX(calc(-50vw - 20px));
+    }
+    100%{
+        transform: translateX(calc(100vw + 20px));
+    }
+}
+
+.star::after,
+.star::before{
+    content: "\2726";
+    display: block;
+    position: inherit;
+    top: inherit;
+    left: inherit;
+}
+.star::after { /* The foreground star */
+    background: linear-gradient(135deg, rgb(195, 237, 250) 20%, rgb(218, 228, 233) 70%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.star::before { /* The star shadow */
+    color: transparent;
+    text-shadow: 2px 3px 10px rgb(247, 242, 242);
+}
+
+
+@keyframes stars{
+    0%{
+        transform: translateY(0px);
+    }
+    100%{
+        transform: translateY(200vh);
+    }
+}
+
