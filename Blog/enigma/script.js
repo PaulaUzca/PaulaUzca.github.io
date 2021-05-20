@@ -206,7 +206,7 @@ function enter(){
        }
     }
 
-    if(output.value == "" && isjustText){
+    if(output.textContent == "" && isjustText){
         for (let letra = 0; letra < message.length; letra++) {
             let letraPressed = message[letra].toUpperCase();
             let keyElement = teclas[qwertz.indexOf(letraPressed)];
@@ -241,7 +241,7 @@ textInput.addEventListener("keydown", function(event){
 for(let i = 0; i< teclas.length; i++){
 
     teclas[i].addEventListener("click", function(){
-        textInput.innerHTML +=  teclas[i].querySelectorAll("p")[0].textContent;
+        textInput.value +=  teclas[i].querySelectorAll("p")[0].textContent;
         presionarKey(this);
     });
     teclas[i].addEventListener("animationend", function(){
@@ -314,7 +314,7 @@ function iluminarLetra(letraEncriptada){
 //Boton clear input box
 document.getElementById("clearInputBox").addEventListener("click", function(){
     textInput.value = "";
-    output.innerText = "";
+    output.textContent = "";
 });
 
 document.getElementById("encriptInput").addEventListener("click", function(){
@@ -351,7 +351,7 @@ document.getElementById("reset-settings").addEventListener("click", function(){
     document.getElementById("user-settings").textContent = "Tus Enigma Settings son:"
 
     textInput.value = "";
-    output.innerText = "";
+    output.textContent = "";
     contador = 0;  //Resetear espacio que se deja entre letras
 
 });

@@ -16,7 +16,7 @@ html{
 }
 body{
     font-family: 'Montserrat', sans-serif;
-    background: url(https://i.imgur.com/gF9jgLP.jpg);
+    background-image: url(https://i.imgur.com/dkZlIja.png);
     background-repeat: repeat-y;
     background-size: cover;
 }
@@ -180,7 +180,7 @@ main{
     justify-content: space-between;
 }
 .intro__aboutme div:nth-child(even) .aboutme__question--title{
-    background-color: var(--softblue);
+    background-color: var(--potropink);
 }
 .aboutme__question--title p{
     margin-left: 10px;
@@ -464,6 +464,13 @@ footer{
     flex-direction: row;
     align-items: center;
     margin: 5px 0px;
+}
+.footer__social--container a{
+    display: flex;
+    text-decoration: none;
+}
+.footer__social--container a:hover{
+    font-weight: bold;
 }
 .footer__social--logo{
     height: 30px;

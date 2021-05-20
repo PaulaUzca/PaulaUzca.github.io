@@ -650,6 +650,13 @@ no rompan el diseño mobile*/
     align-items: center;
     margin: 5px 0px;
 }
+.footer__social--container a{
+    display: flex;
+    text-decoration: none;
+}
+.footer__social--container a:hover{
+    font-weight: bold;
+}
 .footer__social--logo{
     height: 30px;
     width: 30px;
