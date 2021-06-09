@@ -32,7 +32,7 @@ body::-webkit-scrollbar{
     display: inline-block;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url(./assets/icons/pinkfire.svg);
+    background-image: url(../assets/icons/pinkfire.svg);
 }
 img{
     width: 100%;
@@ -85,7 +85,7 @@ header{
     display: inline-block;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url(./assets/icons/titulo.svg);
+    background-image: url(../assets/icons/titulo.svg);
 }
 .header__subtitle{
     margin-top: 6px;
@@ -192,7 +192,7 @@ main{
     height: 22px;
     margin-right: 10px;
     display: inline-block;
-    background-image: url(./assets/icons/arrow.svg);
+    background-image: url(../assets/icons/arrow.svg);
     background-repeat: no-repeat;
     background-size: contain;
     cursor: pointer;
@@ -221,6 +221,7 @@ main{
 }
 .projects__all{
     width: 100%;
+    max-width: 620px;
     height: auto;
     display: flex;
     flex-direction: column;
@@ -283,9 +284,6 @@ main{
 .project__item--cara1 .project__item--info{
     flex-direction: row;
 }
-.project__item--cara2 .project__item--info{
-    flex-direction: column;
-}
 .project__item--info p{
     width: 80%;
     padding-top: 8px;
@@ -313,7 +311,7 @@ main{
     margin: 0 auto;
     transform: rotate(90deg);
     display: inline-block;
-    background-image: url(./assets/icons/pink-arrow.svg);
+    background-image: url(../assets/icons/pink-arrow.svg);
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -351,7 +349,7 @@ main{
     flex-direction: column;
     position: absolute;
     padding: 10px 15px;
-    box-shadow: -2px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow : -1px 4px 5px rgb(0 0 0 /16%);
 }
 .project__item--cara1{
     background-color: var(--softpink);
@@ -423,7 +421,7 @@ main{
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    background-image: url(./assets/icons/eye.svg);
+    background-image: url(../assets/icons/eye.svg);
 }
 .blog-type{
     width: 100%;
